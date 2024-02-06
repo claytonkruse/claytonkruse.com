@@ -25,7 +25,7 @@
 <p>In high school I took a number of classes related to computer science.</p>
 <ul>
 	<li>
-		Classes Taken in High School
+		High School Classes
 		<ul>
 			<li>Intro to Programming</li>
 			<li>
