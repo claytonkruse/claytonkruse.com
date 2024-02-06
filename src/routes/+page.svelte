@@ -1,7 +1,8 @@
 <h1 class="font-serif">Clayton Kruse</h1>
 <p>
-	Hello, I am a full time CS student at Mizzou, who skipped CS 1050 for CS 2050
-	in my first year, and I am looking for summer internship opportunities.
+	Hello, I am a full time CS student at Mizzou, who was able to skip CS 1050 for
+	CS 2050 in my first year, and I am looking for summer internship
+	opportunities.
 </p>
 <h2>Contact Me</h2>
 <table>
@@ -56,8 +57,8 @@
 	bewildered by how basic the material was. After the class ended, I immediately
 	contacted my Academic Advisor and asked him about potentially skipping the
 	class for something more advanced. He informed me of a policy that would allow
-	me to skip, and get credit for CS 1050, so long as I could get above a B in
-	the more advanced class, CS 2050. It's now the spring semester, and I have
+	me to skip and get credit for CS 1050, so long as I could get above a B in the
+	more advanced class, CS 2050. It's now the spring semester, and I have
 	successfully recieved credit for both CS 1050 and 2050 with a cumulative GPA
 	of 3.44 for the fall semester.
 </p>
