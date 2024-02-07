@@ -1,8 +1,8 @@
 <h1 class="font-serif">Clayton Kruse</h1>
 <p>
 	Hello, I am a full time CS student at Mizzou, who was able to skip CS 1050 for
-	CS 2050 in my first year, and I am looking for summer internship
-	opportunities.
+	CS 2050 with a cumulative GPA of 3.44 in my first semseter, and I am looking
+	for summer internship opportunities.
 </p>
 <h2>Contact Me</h2>
 <table>
@@ -109,7 +109,7 @@
 	<a href="https://lucia-auth.com/">Lucia</a>.
 </p>
 
-<h2>Experience as an Employee</h2>
+<h2>Employment Experience</h2>
 <p>I have been formally employed by buisnesses on two seperate occasions.</p>
 <p>
 	My first job was working part time at Dairy Queen in the back, which was known
