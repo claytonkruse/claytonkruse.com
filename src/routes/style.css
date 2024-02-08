@@ -6,6 +6,10 @@
 	@apply bg-zinc-900 text-gray-50;
 }
 
+body {
+	@apply p-8;
+}
+
 h1 {
 	@apply text-4xl font-bold;
 }

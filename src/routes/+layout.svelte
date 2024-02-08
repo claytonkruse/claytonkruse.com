@@ -2,7 +2,7 @@
 	import './style.css';
 </script>
 
-<header class="h-10"><div></div></header>
+<!-- <header class="h-10"><div></div></header> -->
 <main id="main" class="m-auto max-w-2xl">
 	<slot />
 </main>
