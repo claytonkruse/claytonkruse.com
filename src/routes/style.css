@@ -41,12 +41,8 @@ ul:not(:last-child) {
 	@apply mb-3;
 }
 
-a:visited {
-	@apply text-cyan-600;
-}
-
 a {
-	@apply text-cyan-500 hover:text-cyan-300 hover:underline;
+	@apply text-cyan-500 visited:text-cyan-600 hover:text-cyan-300 hover:underline;
 }
 
 table {

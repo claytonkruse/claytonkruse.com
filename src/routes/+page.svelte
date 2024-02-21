@@ -1,3 +1,7 @@
+<svelte:head>
+    <title>Clayton Kruse</title>
+</svelte:head>
+
 <h1 class="font-serif">Clayton Kruse</h1>
 <p>
 	Hello, I am a full time Computer Science student at Mizzou, who was able to
