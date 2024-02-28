@@ -1,5 +1,77 @@
+<script lang="ts">
+	const techs = [
+		'C',
+		'Java',
+		'JavaScript',
+		'TypeScript',
+		'Go',
+		'Lua',
+		'Python',
+		'C#',
+
+		'Bash',
+		'ssh',
+		'Vim',
+		'Neovim',
+		'VSCode',
+		'VSCodium',
+
+		'Node.js',
+		'Express',
+		'Axios',
+		'Socket.IO',
+		'Discord.js',
+
+		'React',
+		'Svelte',
+		'SvelteKit',
+
+		'SQL',
+		'MySQL',
+		'SQLite',
+		'PostgreSQL',
+		'Prisma',
+		'Lucia',
+
+		'MongoDB',
+		'Mongoose',
+
+		'PHP',
+		'Apache',
+		'Caddy',
+
+		'Heroku',
+		'Linode',
+		'Vercel',
+
+		'Windows',
+		'Windows Administration',
+		'Windows Netowrk Administration',
+		'DOS Shell',
+
+		'GNU/Linux',
+		'Debian',
+		'Ubuntu',
+		'Ubuntu Server',
+		'LinuxMint',
+		'Fedora',
+		'Arch Linux',
+		'EndeavourOS',
+
+		'Gnome',
+		'KDE Plasma',
+		'Xfce',
+		'i3wm',
+
+		'Ventoy',
+
+		'Jellyfin',
+		'Plex'
+	];
+</script>
+
 <svelte:head>
-    <title>Clayton Kruse</title>
+	<title>Clayton Kruse</title>
 </svelte:head>
 
 <h1 class="font-serif">Clayton Kruse</h1>
@@ -46,7 +118,10 @@
 			</li>
 			<li>
 				Networking
-				<ul><li>Windows Network Administration</li></ul>
+				<ul>
+					<li>IP</li>
+					<li>Windows Network Administration</li>
+				</ul>
 			</li>
 		</ul>
 	</li>
@@ -66,14 +141,20 @@
 	with a cumulative GPA of 3.44 for the fall semester.
 </p>
 
-<!-- <h2>Technologies I have Experience With</h2> -->
+<h2>Technologies I have Experience With</h2>
+<div class="grid">
+	{#each techs as tech}
+		<div>{tech}</div>
+	{/each}
+</div>
 
 <h2>Related Projects and Hobbies</h2>
 <p>
 	I started programing games on <a href="https://scratch.mit.edu">Scratch</a> in
 	elementary school. Inspired to program at an early age, I continued on to create
-	numerous projects on the platform that far exceeded the scope of Scratch. I did
-	all of my programming in Scratch until I moved on in middle school.
+	numerous projects on the platform that far exceeded the scope of Scratch. These
+	projects required complex understanding of Algebra, Trigonometry, and Physics.
+	I did all of my programming in Scratch until I moved on in middle school.
 </p>
 <p>
 	In middle school, I spent a lot of time working with JavaScript and Node.JS.
@@ -92,9 +173,9 @@
 		>Discord.JS</a
 	>. This bot also included a frontend written in
 	<a href="https://react.dev/">React</a> and had persistent functionality that I
-	achieved with <a href="https://www.mongodb.com/">MongoDB</a>. I also wrote
-	HTML proxies from scratch, before I realized there are easier solutions to
-	bypass a blocklist.
+	achieved with <a href="https://www.mongodb.com/">MongoDB</a> and
+	<a href="https://mongoosejs.com/">Mongoose</a>. I also wrote HTML proxies from
+	scratch, before I realized there are easier solutions to bypass a blocklist.
 </p>
 <p>
 	I also made the switch from Windows to Unix-like operating systems in high
@@ -137,3 +218,12 @@
 	the solitude of Dairy Queen. During my time at Dierberg's, I was also in
 	charge of training new part-time hires.
 </p>
+
+<style>
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1.2em;
+		margin-bottom: 1em;
+	}
+</style>
