@@ -72,6 +72,7 @@
 
 <svelte:head>
 	<title>Clayton Kruse</title>
+	<meta name="author" content="Clayton Kruse" />
 </svelte:head>
 
 <h1 class="font-serif">Clayton Kruse</h1>
