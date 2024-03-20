@@ -46,7 +46,7 @@
 
 		'Windows',
 		'Windows Administration',
-		'Windows Netowrk Administration',
+		'Windows Network Administration',
 		'DOS Shell',
 
 		'GNU/Linux',
