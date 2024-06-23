@@ -95,6 +95,13 @@
 			<a href="tel:+13147452624">(314) 745-2624</a>
 		</td>
 	</tr>
+	<tr>
+		<td>LinkedIn</td>
+		<td
+			><a href="https://www.linkedin.com/in/claykruse/">in.claytonkruse.com</a
+			></td
+		>
+	</tr>
 </table>
 
 <h2>Education</h2>
