@@ -93,7 +93,7 @@
 </p>
 
 <h2>Technologies I have Experience With</h2>
-<div class="grid">
+<div class="mb-5 grid grid-cols-3 gap-1 md:grid-cols-5">
 	{#each techs as tech}
 		<div>{tech}</div>
 	{/each}
@@ -146,12 +146,3 @@
 	myself; however, I have migrated to
 	<a href="https://lucia-auth.com/">Lucia</a>.
 </p>
-
-<style>
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		gap: 1.2em;
-		margin-bottom: 1em;
-	}
-</style>
