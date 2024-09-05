@@ -72,7 +72,6 @@
 
 <svelte:head>
 	<title>Clayton Kruse</title>
-	<meta name="author" content="Clayton Kruse" />
 </svelte:head>
 
 <hgroup>

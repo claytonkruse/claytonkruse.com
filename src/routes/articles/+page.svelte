@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Articles | Clayton Kruse</title>
+</svelte:head>
+
 <h1 class="mb-2 text-2xl">Articles</h1>
 <nav>
 	<ul class="list-none p-0">

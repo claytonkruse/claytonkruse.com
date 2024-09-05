@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Contact Me | Clayton Kruse</title>
+</svelte:head>
+
 <h1 class="mb-1 text-lg uppercase">Contact Me</h1>
 <table>
 	<tr>
