@@ -3,33 +3,29 @@
 @tailwind utilities;
 
 :root {
-	@apply bg-zinc-900 text-gray-300;
+	@apply h-full;
 }
 
 body {
-	@apply p-8;
+	@apply h-full;
+	@apply overflow-y-scroll;
+	@apply bg-stone-950 text-zinc-400;
 }
 
 h1,
 h2,
 h3,
 h4 {
-	@apply font-bold text-gray-50;
+	@apply font-serif font-bold text-zinc-100;
 }
 
-h1 {
-	@apply text-4xl;
+hgroup > h2 {
+	@apply text-zinc-400;
 }
 
-h2 {
-	@apply text-xl;
-}
-
-h3 {
-	@apply text-lg;
-}
-
-p {
+p,
+h1:not(hgroup > *),
+hgroup {
 	@apply mb-5;
 }
 
@@ -42,7 +38,7 @@ ul:not(:last-child) {
 }
 
 a {
-	@apply text-cyan-500 visited:text-cyan-600 hover:text-cyan-300 hover:underline;
+	@apply text-cyan-300 hover:underline;
 }
 
 table {

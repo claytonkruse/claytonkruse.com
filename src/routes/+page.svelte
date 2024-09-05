@@ -20,7 +20,7 @@
 		'Express',
 		'Axios',
 		'Socket.IO',
-		'Discord.js',
+		'Discord.JS',
 
 		'React',
 		'Svelte',
@@ -75,69 +75,12 @@
 	<meta name="author" content="Clayton Kruse" />
 </svelte:head>
 
-<h1 class="font-serif">Clayton Kruse</h1>
-<p>
-	Hello, I am a full time Computer Science student at Mizzou, who was able to
-	skip CS 1050 for CS 2050 with a cumulative GPA of 3.44 in my first semseter,
-	and I am looking for summer internship opportunities.
-</p>
-<h2>Contact Me</h2>
-<table>
-	<tr>
-		<td>Email</td>
-		<td>
-			<a href="mailto:claytonkruse08@gmail.com">claytonkruse08@gmail.com</a>
-		</td>
-	</tr>
-	<tr>
-		<td>Phone</td>
-		<td>
-			<a href="tel:+13147452624">(314) 745-2624</a>
-		</td>
-	</tr>
-	<tr>
-		<td>LinkedIn</td>
-		<td
-			><a href="https://www.linkedin.com/in/claykruse/">in.claytonkruse.com</a
-			></td
-		>
-	</tr>
-</table>
+<hgroup>
+	<h1 class="font-serif text-4xl">Clayton Kruse</h1>
+	<h2>Hello, I am a full time student of Computer Science at Mizzou.</h2>
+</hgroup>
 
-<h2>Education</h2>
-<p>In high school I took a number of classes related to computer science.</p>
-<ul>
-	<li>
-		High School Classes
-		<ul>
-			<li>Intro to Programming</li>
-			<li>
-				AP Computer Science
-				<ul>
-					<li>OOP & Inheritence</li>
-				</ul>
-			</li>
-			<li>
-				Web Development
-				<ul>
-					<li>Learned PHP</li>
-					<li>Learned SQL with <a href="https://www.mysql.com/">MySQL</a></li>
-				</ul>
-			</li>
-			<li>
-				Networking
-				<ul>
-					<li>IP</li>
-					<li>Windows Network Administration</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-	<li>
-		Awarded for Highest Innovation at Missouri S&T Summer Pre-Decision Visit
-	</li>
-</ul>
-<h3>University Education at Mizzou</h3>
+<h2>University Education at Mizzou</h2>
 <p>
 	On my first day of class at Mizzou, I walked into CS 1050, sat down, and was
 	bewildered by how basic the material was. After the class ended, I immediately
@@ -156,7 +99,7 @@
 	{/each}
 </div>
 
-<h2>Related Projects and Hobbies</h2>
+<h2>Hobbies</h2>
 <p>
 	I started programing games on <a href="https://scratch.mit.edu">Scratch</a> in
 	elementary school. Inspired to program at an early age, I continued on to create
@@ -202,29 +145,6 @@
 	applications also include authentication functionality that I initally wrote
 	myself; however, I have migrated to
 	<a href="https://lucia-auth.com/">Lucia</a>.
-</p>
-
-<h2>Employment Experience</h2>
-<p>I have been formally employed by businesses on two separate occasions.</p>
-<p>
-	My first job was working part time at Dairy Queen in the back, which was known
-	as the grill. I prepared all the hot food at that location. My
-	responsibilities included managing a grill, multiple fryers, multiple
-	microwaves, two ovens, and the freezer. I always worked the closing shift, so
-	at the end of the night, I would do all the dishes, clean the grill and the
-	fryers, take the grease out back behind the dumpster and pour it into the
-	receptacal, clean all surfaces including the insides of the microwaves, take
-	out the trash, and finally mop the floors.
-</p>
-<p>
-	My second job was working full time at Dierberg's in the Deli department. This
-	job was much the same as working at Dairy Queen. Both jobs had lots of hard
-	work preparing food, cleaning, and working the closing shift. The difference
-	with Dierberg's was that I was now working full time while still attending
-	school, and in a position where I had to both provide customer service, and
-	functionally work as a team with my co-workers, which was in stark contrast to
-	the solitude of Dairy Queen. During my time at Dierberg's, I was also in
-	charge of training new part-time hires.
 </p>
 
 <style>
