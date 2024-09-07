@@ -1,5 +1,10 @@
 <script lang="ts">
-	const techs = [
+	let techs = [
+		'PocketBase',
+
+		'Docker',
+		'Docker Compose',
+
 		'C',
 		'Java',
 		'JavaScript',
@@ -25,11 +30,13 @@
 		'React',
 		'Svelte',
 		'SvelteKit',
+		'TailwindCSS',
 
 		'SQL',
 		'MySQL',
 		'SQLite',
-		'PostgreSQL',
+		'Postgres',
+		'Drizzle',
 		'Prisma',
 		'Lucia',
 
@@ -45,9 +52,6 @@
 		'Vercel',
 
 		'Windows',
-		'Windows Administration',
-		'Windows Network Administration',
-		'DOS Shell',
 
 		'GNU/Linux',
 		'Debian',
@@ -67,7 +71,7 @@
 
 		'Jellyfin',
 		'Plex'
-	];
+	].sort();
 </script>
 
 <svelte:head>
@@ -92,7 +96,7 @@
 </p>
 
 <h2>Technologies I have Experience With</h2>
-<div class="mb-5 grid grid-cols-3 gap-1 md:grid-cols-5">
+<div class="mb-5 grid grid-cols-3 gap-1 sm:grid-cols-4 md:grid-cols-5">
 	{#each techs as tech}
 		<div>{tech}</div>
 	{/each}
