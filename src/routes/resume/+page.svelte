@@ -7,6 +7,7 @@
 	<ul class="list-none p-0 pb-2">
 		<li><a href="https://resume.clayk.cc/resume.pdf">PDF Download</a></li>
 		<li><a href="https://resume.clayk.cc">All Downloads</a></li>
+		<li><a href="https://github.com/claytonkruse/resume">GitHub Repo</a></li>
 	</ul>
 </nav>
 <div class="p-5" style="background-color: white">
