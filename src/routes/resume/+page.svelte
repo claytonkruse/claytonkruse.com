@@ -2,5 +2,20 @@
 	<title>Resume | Clayton Kruse</title>
 </svetle:head>
 
-<h1>Resume</h1>
-<p>I am currently in the process of remaking my resume for this semester.</p>
+<h1 class="text-center text-4xl">Resume</h1>
+<nav class="mb-5 text-center">
+	<ul class="list-none p-0 pb-2">
+		<li><a href="https://resume.clayk.cc/resume.pdf">PDF Download</a></li>
+		<li><a href="https://resume.clayk.cc">All Downloads</a></li>
+	</ul>
+</nav>
+<div class="p-5" style="background-color: white">
+	<iframe
+		title="Clayton Kruse's Resume"
+		class="overflow-hidden"
+		width="600"
+		height="880"
+		src="https://resume.clayk.cc/resume.html"
+		frameborder="0"
+	></iframe>
+</div>
