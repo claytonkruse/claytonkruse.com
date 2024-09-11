@@ -83,18 +83,6 @@
 	<h2>Hello, I am a full time student of Computer Science at Mizzou.</h2>
 </hgroup>
 
-<h2>University Education at Mizzou</h2>
-<p>
-	On my first day of class at Mizzou, I walked into CS 1050, sat down, and was
-	bewildered by how basic the material was. After the class ended, I immediately
-	contacted my Academic Advisor and asked him about potentially skipping the
-	class for something more advanced. He informed me of a policy that would allow
-	me to skip CS 1050, while still receiving credit for it, under the condition
-	that I get above a B in the more advanced class, CS 2050. It's now the spring
-	semester, and I have successfully received credit for both CS 1050 and 2050
-	with a cumulative GPA of 3.44 for the fall semester.
-</p>
-
 <h2>Technologies I have Experience With</h2>
 <div class="mb-5 grid grid-cols-3 gap-1 sm:grid-cols-4 md:grid-cols-5">
 	{#each techs as tech}
