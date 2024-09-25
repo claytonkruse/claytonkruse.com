@@ -15,6 +15,7 @@
 	</nav>
 	<nav class="right-5 md:absolute">
 		<ul class="flex list-none gap-3 p-0">
+			<li><a href="/friends/">Friends</a></li>
 			<li><a href="/articles/">Articles</a></li>
 			<li><a href="/projects/">Projects</a></li>
 		</ul>
