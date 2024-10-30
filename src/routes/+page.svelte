@@ -1,7 +1,5 @@
 <script lang="ts">
 	let techs = [
-		'PocketBase',
-
 		'Docker',
 		'Docker Compose',
 
@@ -9,68 +7,28 @@
 		'Java',
 		'JavaScript',
 		'TypeScript',
-		'Go',
-		'Lua',
-		'Python',
-		'C#',
 
-		'Bash',
-		'ssh',
-		'Vim',
 		'Neovim',
-		'VSCode',
-		'VSCodium',
 
-		'Node.js',
-		'Express',
-		'Axios',
-		'Socket.IO',
-		'Discord.JS',
-
-		'React',
 		'Svelte',
 		'SvelteKit',
 		'TailwindCSS',
 
 		'SQL',
-		'MySQL',
-		'SQLite',
 		'Postgres',
 		'Drizzle',
 		'Prisma',
 		'Lucia',
 
-		'MongoDB',
-		'Mongoose',
+		'Caddy Server',
 
-		'PHP',
-		'Apache',
-		'Caddy',
-
-		'Heroku',
-		'Linode',
+		'Linode VPS',
 		'Vercel',
 
-		'Windows',
-
-		'GNU/Linux',
+		'Linux',
 		'Debian',
-		'Ubuntu',
-		'Ubuntu Server',
-		'LinuxMint',
-		'Fedora',
 		'Arch Linux',
-		'EndeavourOS',
-
-		'Gnome',
-		'KDE Plasma',
-		'Xfce',
-		'i3wm',
-
-		'Ventoy',
-
-		'Jellyfin',
-		'Plex'
+		'EndeavourOS'
 	].sort();
 </script>
 
@@ -83,7 +41,7 @@
 	<h2>Hello, I am a full time student of Computer Science at Mizzou.</h2>
 </hgroup>
 
-<h2>Technologies I have Experience With</h2>
+<h2>Skills</h2>
 <div class="mb-5 grid grid-cols-3 gap-1 sm:grid-cols-4 md:grid-cols-5">
 	{#each techs as tech}
 		<div>{tech}</div>
@@ -116,15 +74,15 @@
 	>. This bot also included a frontend written in
 	<a href="https://react.dev/">React</a> and had persistent functionality that I
 	achieved with <a href="https://www.mongodb.com/">MongoDB</a> and
-	<a href="https://mongoosejs.com/">Mongoose</a>. I also wrote HTML proxies from
-	scratch, before I realized there are easier solutions to bypass a blocklist.
+	<a href="https://mongoosejs.com/">Mongoose</a>. I also wrote a HTML proxy from
+	scratch in JavaScript, before I realized there are easier solutions to bypass
+	a blocklist.
 </p>
 <p>
 	I also made the switch from Windows to Unix-like operating systems in high
 	school. I fiddled around with different Linux distrobutions until I settled on <a
 		href="https://archlinux.org/">Arch</a
-	>. I also run some Linux boxes at home, which I use for
-	<a href="https://jellyfin.org/">Jellyfin</a> and as a NAS.
+	>. I also run some Linux boxes at home, for personal self-hosted applications.
 </p>
 <p>
 	In college, so far I have been working on multiple web applications in <a
@@ -132,7 +90,7 @@
 	>. These applications have
 	<a href="https://www.sqlite.org/index.html">SQLite</a>
 	and <a href="https://www.postgresql.org/">PostgreSQL</a> databases that I
-	interact with through <a href="https://www.prisma.io/">Prisma</a>. These
+	interact with through <a href="https://orm.drizzle.team/">Drizzle</a>. These
 	applications also include authentication functionality that I initally wrote
 	myself; however, I have migrated to
 	<a href="https://lucia-auth.com/">Lucia</a>.
