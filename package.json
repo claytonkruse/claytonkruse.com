@@ -36,5 +36,8 @@
 		"vite": "^6.0.3",
 		"vitest": "^2.1.4"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"rss-parser": "^3.13.0"
+	}
 }
