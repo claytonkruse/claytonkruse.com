@@ -10,7 +10,7 @@
 	let { children } = $props();
 </script>
 
-<div class="flex min-h-full flex-col justify-between">
+<div class="flex h-max min-h-full flex-col justify-between">
 	<Header></Header>
 	<main id="main" class="m-auto max-w-3xl p-7">
 		{@render children?.()}
