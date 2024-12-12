@@ -17,7 +17,7 @@
 		<ul>
 			<li><a href="/friends/">Friends</a></li>
 			<li><a href="/articles/">Articles</a></li>
-			<li><a href="/projects/">Projects</a></li>
+			<li><a href="/endeavors/">Endeavors</a></li>
 		</ul>
 	</nav>
 </header>
