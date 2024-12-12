@@ -80,7 +80,7 @@
 </p>
 <p>
 	I also made the switch from Windows to Unix-like operating systems in high
-	school. I fiddled around with different Linux distrobutions until I settled on <a
+	school. I fiddled around with different Linux distributions until I settled on <a
 		href="https://archlinux.org/">Arch</a
 	>. I also run some Linux boxes at home, for personal self-hosted applications.
 </p>
