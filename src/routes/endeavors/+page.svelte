@@ -1,9 +1,10 @@
 <svetle:head>
-	<title>Endeavor | Clayton Kruse</title>
+	<title>Endeavors | Clayton Kruse</title>
 </svetle:head>
 
-<h1>Endeavor</h1>
-<p>
-	I am currently working on an digital advertizing website that I will brag
-	about here soon.
-</p>
+<h1 class="text-4xl">Endeavors</h1>
+<nav>
+	<ul>
+		<li><a href="https://toolbox.clayk.cc">Toolbox</a></li>
+	</ul>
+</nav>
