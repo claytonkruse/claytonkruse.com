@@ -4,7 +4,7 @@
 	<title>Contact Me | Clayton Kruse</title>
 </svelte:head>
 
-<h1 class="mb-1 text-lg uppercase">Contact Me</h1>
+<h1 class="mb-1 text-3xl uppercase">Contact Me</h1>
 <table>
 	<tbody>
 		<tr>
@@ -21,7 +21,7 @@
 		</tr>
 		<tr>
 			<td>LinkedIn</td>
-			<td><a href="https://www.linkedin.com/in/claykruse/">clayk.cc/in</a></td>
+			<td><a href="/in/">clayk.cc/in</a></td>
 		</tr>
 	</tbody>
 </table>
