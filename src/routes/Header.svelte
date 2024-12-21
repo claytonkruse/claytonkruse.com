@@ -4,9 +4,9 @@
 </script>
 
 <header
-	class="justify-center border-b-[1px] border-b-zinc-800 font-serif uppercase md:flex md:px-0"
+	class="flex flex-wrap justify-center gap-x-4 border-b-[1px] border-b-zinc-800 px-2 font-serif uppercase"
 >
-	<nav class="left-5 h-full md:absolute">
+	<nav class="left-5 h-full sm:absolute">
 		<a href="/">
 			<img src="/favicon.png" alt="Home" class="w-10 align-baseline" />
 		</a>
@@ -21,7 +21,7 @@
 			<li><a href="/contact/">Contact</a></li>
 		</ul>
 	</nav>
-	<nav class="right-5 h-full md:absolute">
+	<nav class="right-5 h-full sm:absolute">
 		<ul class="gap-2">
 			<li>
 				<a href="/x/"><TwitterIcon class="translate-y-[3px]" /></a>
