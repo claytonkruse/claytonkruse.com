@@ -15,10 +15,10 @@
 		<ul class="gap-4">
 			<li><a href="/work-history/">Work History</a></li>
 			<li><a href="/resume/">Resume</a></li>
-			<li><a href="/contact/">Contact</a></li>
 			<!-- <li><a href="/friends/">Friends</a></li> -->
 			<li><a href="/articles/">Articles</a></li>
 			<li><a href="/endeavors/">Endeavors</a></li>
+			<li><a href="/contact/">Contact</a></li>
 		</ul>
 	</nav>
 	<nav class="right-5 h-full md:absolute">
