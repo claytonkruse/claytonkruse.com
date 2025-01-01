@@ -1,5 +1,10 @@
 <svelte:head>
 	<title>Work History | Clayton Kruse</title>
+	<meta
+		name="description"
+		content="Independently ran a technology repair business for two weeks. Recieved high praise for my achievements."
+	/>
+	<meta name="keywords" content="work history, experience, employment" />
 </svelte:head>
 
 <h1 class="text-3xl">Work History</h1>
