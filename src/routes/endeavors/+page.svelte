@@ -1,11 +1,11 @@
-<svetle:head>
+<svelte:head>
 	<title>Endeavors | Clayton Kruse</title>
 	<meta
 		name="description"
 		content="Here is a list of my projects and endeavors."
 	/>
 	<meta name="keywords" content="endeavors, endeavours, projects" />
-</svetle:head>
+</svelte:head>
 
 <div class="text-center">
 	<h1 class="text-4xl">Endeavors</h1>
