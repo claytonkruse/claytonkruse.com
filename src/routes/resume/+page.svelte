@@ -1,5 +1,9 @@
 <svetle:head>
 	<title>Resume | Clayton Kruse</title>
+	<meta
+		name="description"
+		content="This is my resume. It is available for download in different formats."
+	/>
 </svetle:head>
 
 <h1 class="text-center text-4xl">Resume</h1>

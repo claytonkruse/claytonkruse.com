@@ -34,6 +34,10 @@
 
 <svelte:head>
 	<title>Clayton Kruse</title>
+	<meta
+		name="description"
+		content="Welcome to Clayton Kruse's personal website."
+	/>
 </svelte:head>
 
 <hgroup>

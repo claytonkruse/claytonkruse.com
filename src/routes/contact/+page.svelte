@@ -1,7 +1,6 @@
-<!-- @migration-task Error while migrating Svelte code: `<tr>` is invalid inside `<table>` -->
-<!-- @migration-task Error while migrating Svelte code: `<tr>` is invalid inside `<table>` -->
 <svelte:head>
 	<title>Contact Me | Clayton Kruse</title>
+	<meta name="description" content="Kruse's contact information." />
 </svelte:head>
 
 <h1 class="mb-1 text-3xl uppercase">Contact Me</h1>

@@ -1,5 +1,10 @@
 <svetle:head>
 	<title>Endeavors | Clayton Kruse</title>
+	<meta
+		name="description"
+		content="Here is a list of my projects and endeavors."
+	/>
+	<meta name="keywords" content="endeavors, endeavours, projects" />
 </svetle:head>
 
 <div class="text-center">
