@@ -1,6 +1,7 @@
 <script lang="ts">
-	import TwitterIcon from '~icons/prime/twitter';
-	import LinkedInIcon from '~icons/akar-icons/linkedin-box-fill';
+	import Twitter from '~icons/prime/twitter';
+	import LinkedIn from '~icons/akar-icons/linkedin-box-fill';
+	import Github from '~icons/akar-icons/github-fill';
 </script>
 
 <header
@@ -13,21 +14,30 @@
 	</nav>
 	<nav>
 		<ul class="gap-4">
+			<li><a href="/endeavors/">Endeavors</a></li>
 			<li><a href="/work-history/">Work History</a></li>
 			<li><a href="/resume/">Resume</a></li>
 			<!-- <li><a href="/friends/">Friends</a></li> -->
 			<li><a href="/articles/">Articles</a></li>
-			<li><a href="/endeavors/">Endeavors</a></li>
 			<li><a href="/contact/">Contact</a></li>
 		</ul>
 	</nav>
 	<nav class="right-5 h-full sm:absolute">
 		<ul class="gap-2">
 			<li>
-				<a href="/x/"><TwitterIcon class="translate-y-[3px]" /></a>
+				<a href="/github/" aria-label="GitHub"
+					><Github class="translate-y-[3px]" /></a
+				>
 			</li>
 			<li>
-				<a href="/in/"><LinkedInIcon class="translate-y-[3px]" /></a>
+				<a href="/x/" aria-label="X (Twitter)"
+					><Twitter class="translate-y-[3px]" /></a
+				>
+			</li>
+			<li>
+				<a href="/in/" aria-label="LinkedIn"
+					><LinkedIn class="translate-y-[3px]" /></a
+				>
 			</li>
 		</ul>
 	</nav>

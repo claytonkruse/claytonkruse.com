@@ -7,6 +7,10 @@ type Link = {
 
 export const links: Array<Link> = [
 	{
+		names: ['github'],
+		url: 'https://github.com/claytonkruse'
+	},
+	{
 		names: ['x', 'twitter'],
 		url: 'https://x.com/claytonkruse/'
 	},
