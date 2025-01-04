@@ -7,20 +7,20 @@
 </svelte:head>
 
 <h1 class="text-center text-4xl">Resume</h1>
-<nav class="mb-5 text-center">
+<nav class="text-center">
 	<ul class="list-none p-0 pb-2">
-		<li><a href="https://resume.clayk.cc/resume.pdf">PDF Download</a></li>
-		<li><a href="https://resume.clayk.cc">All Downloads</a></li>
-		<li><a href="https://github.com/claytonkruse/resume">GitHub Repo</a></li>
+		<li>
+			<a
+				href="https://docs.google.com/document/d/1AG8CuXm4aywkYa64X6YMXsYvHeYMeeVzwqDuenn1hZ8/edit?usp=sharing"
+				>View on Google Docs</a
+			>
+		</li>
 	</ul>
 </nav>
-<div class="p-5" style="background-color: white">
-	<iframe
-		title="Clayton Kruse's Resume"
-		class="overflow-hidden"
-		width="600"
-		height="880"
-		src="https://resume.clayk.cc/resume.html"
-		frameborder="0"
-	></iframe>
-</div>
+<iframe
+	title="Clayton Kruse's Resume"
+	width="816"
+	height="1200"
+	frameborder="0"
+	src="https://docs.google.com/document/d/e/2PACX-1vTNUNgAVUWahd1CyvivLMpHDogmpTLocpjSco70gY-b9D44JClfhinyQafYuunmsv5d-H2SGX2nnfRN/pub?embedded=true"
+></iframe>
