@@ -20,7 +20,7 @@
 <iframe
 	title="Clayton Kruse's Resume"
 	width="816"
-	height="1200"
+	height="1250"
 	frameborder="0"
 	src="https://docs.google.com/document/d/e/2PACX-1vTNUNgAVUWahd1CyvivLMpHDogmpTLocpjSco70gY-b9D44JClfhinyQafYuunmsv5d-H2SGX2nnfRN/pub?embedded=true"
 ></iframe>
