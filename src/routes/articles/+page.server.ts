@@ -1,10 +1,20 @@
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import Parser from 'rss-parser';
 const parser = new Parser();
 
 export const prerender = false;
 
+let cache: any;
+let cacheExpiry: number = Date.now();
+
 export const load: PageServerLoad = async () => {
-	const feed = await parser.parseURL('https://medium.com/feed/@claytonkruse');
+	if (!cache || Date.now() > cacheExpiry) {
+		cache = await parser
+			.parseURL('https://medium.com/feed/@claytonkruse')
+			.catch(() => error(429, 'Could not get data from Medium.'));
+		cacheExpiry = Date.now() + 900_000; // cache lasts 900 sec (15 min)
+	}
+	const feed = cache;
 	return { feed };
 };
