@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Work History | Clayton Kruse</title>
+	<title>Work History - Clayton Kruse</title>
 	<meta
 		name="description"
 		content="Independently ran a technology repair business for two weeks. Recieved high praise for my achievements."

@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Articles | Clayton Kruse</title>
+	<title>Articles - Clayton Kruse</title>
 	<meta name="description" content="Articles written by Clayton Kruse." />
 	<meta name="keywords" content="articles, article, blog, posts, stories" />
 </svelte:head>

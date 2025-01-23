@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Contact Me | Clayton Kruse</title>
+	<title>Contact - Clayton Kruse</title>
 	<meta name="description" content="Kruse's contact information." />
 </svelte:head>
 

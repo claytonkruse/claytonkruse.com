@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>My Friends | Clayton Kruse</title>
+	<title>Friends - Clayton Kruse</title>
 	<meta
 		name="description"
 		content="These are some of my friends. Check them out."

@@ -33,7 +33,7 @@
 </script>
 
 <svelte:head>
-	<title>Clayton Kruse</title>
+	<title>Clayton Kruse - Computer Science Student</title>
 	<meta
 		name="description"
 		content="Welcome to Clayton Kruse's personal website."
