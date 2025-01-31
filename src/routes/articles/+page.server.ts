@@ -5,6 +5,7 @@ const parser = new Parser();
 
 export const prerender = false;
 
+// I do not know SvelteKit well enough to know if this actually works.
 let cache: any;
 let cacheExpiry: number = Date.now();
 

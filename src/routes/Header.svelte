@@ -13,7 +13,7 @@
 		</a>
 	</nav>
 	<nav>
-		<ul class="gap-4">
+		<ul class="gap-x-4">
 			<li><a href="/endeavors/">Endeavors</a></li>
 			<li><a href="/work-history/">Work History</a></li>
 			<li><a href="/resume/">Resume</a></li>
@@ -45,7 +45,7 @@
 
 <style lang="postcss">
 	ul {
-		@apply flex list-none p-0;
+		@apply flex list-none flex-wrap justify-center p-0;
 	}
 	li a {
 		@apply block text-nowrap py-2;
