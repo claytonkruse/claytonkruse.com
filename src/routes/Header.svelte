@@ -13,7 +13,9 @@
 		</a>
 	</nav>
 	<nav>
-		<ul class="gap-x-4">
+		<ul
+			class="gap-x-4 text-balance text-center [&>li:not(:last-child)]:mr-2 [&>li]:inline-block"
+		>
 			<li><a href="/endeavors/">Endeavors</a></li>
 			<li><a href="/work-history/">Work History</a></li>
 			<li><a href="/resume/">Resume</a></li>
@@ -23,7 +25,7 @@
 		</ul>
 	</nav>
 	<nav class="right-5 h-full sm:absolute">
-		<ul class="gap-2">
+		<ul class="flex gap-2">
 			<li>
 				<a href="/github/" aria-label="GitHub"
 					><Github class="translate-y-[3px]" /></a
@@ -45,7 +47,7 @@
 
 <style lang="postcss">
 	ul {
-		@apply flex list-none flex-wrap justify-center p-0;
+		@apply list-none justify-center p-0;
 	}
 	li a {
 		@apply block text-nowrap py-2;
