@@ -56,6 +56,7 @@
 			<div><span class="inline-block">{@html tech}</span></div>
 		{/each}
 	</div>
+	<br />
 
 	<h2>Hobbies</h2>
 	<p>
