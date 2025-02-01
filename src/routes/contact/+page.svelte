@@ -9,7 +9,7 @@
 		<tr>
 			<td>Email</td>
 			<td>
-				<a href="mailto:ck@claytonkruse.com">ck@clayk.cc</a>
+				<a href="mailto:ck@claytonkruse.com">ck@claytonkruse.com</a>
 			</td>
 		</tr>
 		<tr>

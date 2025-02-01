@@ -8,10 +8,14 @@
 </svelte:head>
 
 <div class="text-center">
-	<h1 class="text-4xl">My Endeavors</h1>
+	<h1 class="border-b-[1px] border-b-zinc-800 text-4xl">My Endeavors</h1>
 	<nav class="mb-20">
 		<ul class="list-none p-0">
-			<li><a href="https://toolbox.clayk.cc">Toolbox</a></li>
+			<li>
+				<a href="https://toolbox.clayk.cc/to/">Unlimited Free Image Converter</a
+				>
+			</li>
+			<li><a href="https://minewolf.net/">Minewolf - Minecraft Server</a></li>
 		</ul>
 	</nav>
 	<p class="text-sm opacity-50">
