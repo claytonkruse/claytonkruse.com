@@ -15,7 +15,10 @@
 				<a href="https://toolbox.clayk.cc/to/">Unlimited Free Image Converter</a
 				>
 			</li>
-			<li><a href="https://minewolf.net/">Minewolf - Minecraft Server</a></li>
+			<li>
+				<a href="https://minewolf.net/">Minecraft Server List Platform</a>
+			</li>
+			<li><a href="https://survival.minewolf.net/">Minecraft Server</a></li>
 		</ul>
 	</nav>
 	<p class="text-sm opacity-50">
