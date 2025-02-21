@@ -10,7 +10,7 @@
 <h1 class="text-center text-3xl">Work History</h1>
 
 <div class="max-w-2xl">
-	<h2>Dimension Computer</h2>
+	<h3>Dimension Computer</h3>
 	<p>
 		<a href="https://www.dimension-computer.com/">Dimension Computer</a> is a tech
 		repair store that I worked at over the entirety of the summer after my freshman
@@ -29,7 +29,7 @@
 		congradulated on the exemplery job I had done in the position.
 	</p>
 
-	<h2>Dierbergs</h2>
+	<h3>Dierbergs</h3>
 	<p>
 		My second job was working full time at Dierberg's in the Deli department.
 		This job was much the same as working at Dairy Queen. Both jobs had lots of
@@ -41,7 +41,7 @@
 		I was also in charge of training new part-time hires.
 	</p>
 
-	<h2>Dairy Queen</h2>
+	<h3>Dairy Queen</h3>
 	<p>
 		My first job was working part time at Dairy Queen in the back, A.K.A. the
 		grill. I prepared all the hot food at that location. My responsibilities
@@ -53,3 +53,9 @@
 		and finally mop the floors.
 	</p>
 </div>
+
+<style lang="postcss">
+	h3 {
+		@apply text-lg font-bold;
+	}
+</style>

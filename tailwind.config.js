@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {},
 		fontFamily: {
-			sans: ['"Roboto Slab"', 'sans-serif'],
-			serif: ['"Crimson Pro"', 'serif']
+			sans: ['sans-serif'],
+			serif: ['Alice', 'serif']
 		}
 	},
 	plugins: []

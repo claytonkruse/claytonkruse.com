@@ -19,8 +19,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>X</td>
+			<td><a href="/x/">https://x.com/claytonkruse/</a></td>
+		</tr>
+		<tr>
 			<td>LinkedIn</td>
-			<td><a href="/in/">clayk.cc/in</a></td>
+			<td><a href="/in/">https://www.linkedin.com/in/claykruse/</a></td>
 		</tr>
 	</tbody>
 </table>

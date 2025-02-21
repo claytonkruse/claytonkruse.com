@@ -12,7 +12,8 @@
 	<nav class="mb-20">
 		<ul class="list-none p-0">
 			<li>
-				<a href="https://toolbox.clayk.cc/to/">Unlimited Free Image Converter</a
+				<a href="https://toolbox.clayk.cc/to/"
+					>Free & Unlimited Image Converter</a
 				>
 			</li>
 			<li>

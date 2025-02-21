@@ -40,9 +40,9 @@
 	/>
 </svelte:head>
 
-<hgroup class="text-center">
-	<h1 class="font-serif text-5xl">Clayton Kruse</h1>
-	<h2>
+<hgroup class="text-center font-serif">
+	<h1 class="font-serif text-5xl font-semibold">Clayton Kruse</h1>
+	<h2 class="font-serif">
 		Hello, I am a full time student of
 		<!-- This inline block makes the text break attractively. -->
 		<span class="inline-block">Computer Science at Mizzou.</span>
@@ -50,7 +50,7 @@
 </hgroup>
 
 <div class="max-w-2xl text-justify">
-	<h2>Skills</h2>
+	<h3>Skills</h3>
 	<div class="columns-[6rem] text-base/5 [&>*]:mb-2">
 		{#each techs as tech}
 			<div><span class="inline-block">{@html tech}</span></div>
@@ -58,7 +58,7 @@
 	</div>
 	<br />
 
-	<h2>Hobbies</h2>
+	<h3>Hobbies</h3>
 	<p>
 		I started programing games on <a href="https://scratch.mit.edu">Scratch</a> in
 		elementary school. Inspired to program at an early age, I continued on to create
@@ -106,3 +106,9 @@
 		<a href="https://lucia-auth.com/">Lucia</a>.
 	</p>
 </div>
+
+<style lang="postcss">
+	h3 {
+		@apply text-lg font-bold;
+	}
+</style>
