@@ -16,10 +16,9 @@
 		<ul
 			class="gap-x-4 text-balance text-center [&>li:not(:last-child)]:mr-2 [&>li]:inline-block"
 		>
-			<li><a href="/">Home</a></li>
-			<li><a href="/endeavors/">Endeavors</a></li>
-			<li><a href="/work-history/">Work History</a></li>
-			<li>
+			<li class="grower"><a href="/">Home</a></li>
+			<li class="grower"><a href="/endeavors/">Endeavors</a></li>
+			<li class="grower">
 				<a
 					target="_blank"
 					rel="noopener"
@@ -27,14 +26,14 @@
 					>Resume</a
 				>
 			</li>
-			<!-- <li><a href="/friends/">Friends</a></li> -->
-			<li><a href="/articles/">Articles</a></li>
-			<li><a href="/contact/">Contact</a></li>
+			<li class="grower"><a href="/articles/">Articles</a></li>
+			<li class="grower"><a href="/contact/">Contact</a></li>
 		</ul>
 	</nav>
+
 	<nav class="right-5 h-full sm:absolute">
 		<ul class="flex gap-2">
-			<li>
+			<li class="grower">
 				<a
 					rel="nofollow noopener"
 					target="_blank"
@@ -42,7 +41,7 @@
 					aria-label="GitHub"><Github class="translate-y-[3px]" /></a
 				>
 			</li>
-			<li>
+			<li class="grower">
 				<a
 					rel="nofollow noopener"
 					target="_blank"
@@ -50,7 +49,7 @@
 					aria-label="X (Twitter)"><Twitter class="translate-y-[3px]" /></a
 				>
 			</li>
-			<li>
+			<li class="grower">
 				<a
 					rel="nofollow noopener"
 					target="_blank"
@@ -68,5 +67,9 @@
 	}
 	li a {
 		@apply block text-nowrap py-2;
+	}
+
+	.grower {
+		@apply transition-transform ease-in-out hover:scale-110;
 	}
 </style>

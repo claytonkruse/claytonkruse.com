@@ -6,7 +6,10 @@
 
 <svelte:head>
 	<title>Articles - Clayton Kruse</title>
-	<meta name="description" content="Articles written by Clayton Kruse." />
+	<meta
+		name="description"
+		content="Articles or blogposts written by Clayton Kruse on a variety of topics."
+	/>
 	<meta name="keywords" content="articles, article, blog, posts, stories" />
 </svelte:head>
 

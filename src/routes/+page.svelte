@@ -36,7 +36,11 @@
 	<title>Clayton Kruse - Computer Science Student</title>
 	<meta
 		name="description"
-		content="Welcome to Clayton Kruse's personal website."
+		content="Welcome to Clayton Kruse's personal website. Hello, this is Clayton. I am a full time student of Computer Science."
+	/>
+	<meta
+		name="keywords"
+		content="clayton, kruse, computer, computers, tech, technology, anime"
 	/>
 </svelte:head>
 
