@@ -1,3 +1,11 @@
+<svelte:head>
+	<title>About Me - Clayton Kruse</title>
+	<meta
+		name="description"
+		content="Learn about Clayton Kruse's history and endeavors."
+	/>
+</svelte:head>
+
 <h1 class="border-b-[1px] border-b-zinc-800 text-4xl">About Me</h1>
 
 <nav>
