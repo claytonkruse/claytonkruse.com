@@ -5,7 +5,7 @@
 </script>
 
 <header
-	class="flex flex-wrap justify-center gap-x-4 border-b-[1px] border-b-zinc-800 px-2 font-serif uppercase"
+	class="flex flex-wrap justify-center gap-x-4 border-b-[1px] border-b-zinc-800 border-opacity-35 px-2 font-serif uppercase backdrop-blur-[2.5px]"
 >
 	<nav class="left-5 h-full sm:absolute">
 		<a href="/">
@@ -17,17 +17,9 @@
 			class="gap-x-4 text-balance text-center [&>li:not(:last-child)]:mr-2 [&>li]:inline-block"
 		>
 			<li class="grower"><a href="/">Home</a></li>
+			<li class="grower"><a href="/about/">About</a></li>
 			<li class="grower"><a href="/endeavors/">Endeavors</a></li>
-			<li class="grower">
-				<a
-					target="_blank"
-					rel="noopener"
-					href="https://docs.google.com/document/d/1AG8CuXm4aywkYa64X6YMXsYvHeYMeeVzwqDuenn1hZ8/edit?usp=sharing"
-					>Resume</a
-				>
-			</li>
 			<li class="grower"><a href="/articles/">Articles</a></li>
-			<li class="grower"><a href="/contact/">Contact</a></li>
 		</ul>
 	</nav>
 
@@ -70,6 +62,6 @@
 	}
 
 	.grower {
-		@apply transition-transform ease-in-out hover:scale-110;
+		@apply font-bold transition-transform hover:scale-110;
 	}
 </style>

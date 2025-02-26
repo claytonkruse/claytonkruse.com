@@ -23,14 +23,6 @@ hgroup {
 	@apply mb-5;
 }
 
-ul {
-	@apply list-disc pl-5;
-}
-
-ul:not(:last-child) {
-	@apply mb-3;
-}
-
 a:not(header *) {
 	@apply text-cyan-700 hover:underline;
 }

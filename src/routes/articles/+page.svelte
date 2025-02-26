@@ -17,11 +17,25 @@
 	Articles
 </h1>
 <nav>
-	<ul class="list-none p-0">
-		{#each data.feed.items as item}
-			<li><a href={item.link}>{item.title}</a></li>
-		{/each}
-	</ul>
+	<table>
+		<tbody>
+			{#each data.feed.items as item}
+				<tr>
+					<td>
+						<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
+					</td>
+					<td>
+						<svelte:boundary>
+							{@const date = new Date(item.pubDate)}
+							{('0' + date.getMonth()).slice(-2)}/{('0' + date.getDate()).slice(
+								-2
+							)}/{date.getFullYear()}
+						</svelte:boundary>
+					</td>
+				</tr>
+			{/each}
+		</tbody>
+	</table>
 </nav>
 
 <style lang="postcss">
