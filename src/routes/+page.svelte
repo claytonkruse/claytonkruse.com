@@ -36,7 +36,7 @@
 	<title>Clayton Kruse - Computer Science Student</title>
 	<meta
 		name="description"
-		content="Welcome to Clayton Kruse's personal website. Hello, this is Clayton. I am a full time student of Computer Science."
+		content="Welcome to Clayton Kruse's personal website. Hello, this is Clayton. I am Computer Science Major at Mizzou."
 	/>
 	<meta
 		name="keywords"
@@ -47,9 +47,8 @@
 <hgroup class="text-center font-serif">
 	<h1 class="font-serif text-5xl font-semibold">Clayton Kruse</h1>
 	<h2 class="font-serif">
-		Hello, I am a full time student of
-		<!-- This inline block makes the text break attractively. -->
-		<span class="inline-block">Computer Science at Mizzou.</span>
+		Hello, I am a Computer Science Major at The University of Missouri,
+		Columbia.
 	</h2>
 </hgroup>
 
