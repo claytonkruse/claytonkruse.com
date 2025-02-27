@@ -5,11 +5,15 @@
 </script>
 
 <header
-	class="flex flex-wrap justify-center gap-x-4 border-b-[1px] border-b-zinc-800 border-opacity-35 px-2 font-serif uppercase backdrop-blur-[2.5px]"
+	class="flex flex-wrap justify-center gap-x-4 border-b-[1px] border-b-zinc-800 border-opacity-35 px-2 font-serif uppercase shadow-md backdrop-blur-[2.5px]"
 >
 	<nav class="left-5 h-full sm:absolute">
 		<a href="/">
-			<img src="/favicon.png" alt="Home" class="w-10 align-baseline" />
+			<img
+				src="/favicon.png"
+				alt="Home"
+				class="w-10 align-baseline shadow-2xl"
+			/>
 		</a>
 	</nav>
 	<nav>
@@ -62,6 +66,6 @@
 	}
 
 	.grower {
-		@apply font-bold transition-transform hover:scale-110;
+		@apply font-bold tracking-wider transition-transform hover:scale-110;
 	}
 </style>

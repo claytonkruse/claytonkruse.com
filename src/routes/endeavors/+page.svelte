@@ -31,11 +31,7 @@
 
 	<br />
 
-	<img
-		src={meme}
-		alt="Meme"
-		class="max-w-xl transition-all ease-in-out hover:scale-105"
-	/>
+	<img src={meme} alt="Meme" class="max-w-full shadow-2xl" />
 
 	<br />
 
