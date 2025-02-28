@@ -17,14 +17,14 @@
 	Articles
 </h1>
 <nav>
-	<table>
+	<table class="">
 		<tbody>
 			{#each data.feed.items as item}
 				<tr>
 					<td>
 						<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
 					</td>
-					<td>
+					<td class="align-baseline">
 						<svelte:boundary>
 							{@const date = new Date(item.pubDate)}
 							{('0' + date.getMonth()).slice(-2)}/{('0' + date.getDate()).slice(
