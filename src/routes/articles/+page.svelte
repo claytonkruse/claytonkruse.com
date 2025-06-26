@@ -16,6 +16,7 @@
 <h1 class="mb-2 border-b-[1px] border-b-zinc-800 text-center text-3xl">
 	Articles
 </h1>
+
 <nav>
 	<ul>
 		{#each data.feed.items as item}
@@ -24,12 +25,12 @@
 					<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
 				</div>
 
-				<div class="align-baseline">
+				<div class="font-mono align-baseline">
 					<svelte:boundary>
 						{@const date = new Date(item.pubDate)}
-						{('0' + date.getMonth()).slice(-2)}/{('0' + date.getDate()).slice(
-							-2
-						)}/{date.getFullYear()}
+						{('0' + (date.getMonth() + 1)).slice(-2)}/{(
+							'0' + date.getDate()
+						).slice(-2)}/{date.getFullYear()}
 					</svelte:boundary>
 				</div>
 			</li>

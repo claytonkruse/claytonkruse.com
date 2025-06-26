@@ -5,7 +5,8 @@ export default {
 		extend: {},
 		fontFamily: {
 			sans: ['sans-serif'],
-			serif: ['Alice', 'serif']
+			serif: ['Alice', 'serif'],
+			mono: ['monospace']
 		}
 	},
 	plugins: []
