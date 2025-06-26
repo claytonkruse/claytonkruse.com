@@ -1,0 +1,98 @@
+---
+title: Firefox is Dead
+subtitle: And Mozilla Killed It.
+date: 3-2-2025
+---
+
+Uninstall Firefox. It is finally dead. The only reason anyone is still using it
+is that it was the only viable (not really) alterative to Chromium browsers.
+That is no longer true.
+
+Firefox now requires that all its users grant Mozilla “a nonexclusive,
+royalty-free, worldwide license” to their data. You cannot opt out of this and
+continue to use the browser.
+
+## Other Reasons to Stop Using Firefox
+
+In addition to Firefox no longer being a good choice for privacy, Firefox is
+just objectively a bad browser.
+
+### Rendering Issues
+
+Firefox has countless rendering issues that simply do not exist in other
+browsers.
+
+I was going to post some example images of the Claude web interface to display
+the egregious failure of Firefox to properly render the gradient, but Medium’s
+compression made the comparison impossible. I encourage you to look at the
+difference yourself; it’s stark.
+
+### Bad Developer Experience
+
+Firefox’s dev tools are simply not on the same level as Chromium’s. This has
+been discussed so frequently and is so widely known that I do not feel the need
+to repeat that discussion again here.
+
+### Terrible Power Consumption
+
+Firefox now consumes an enormous amount of power when compared with other
+browsers. For a long while now many people have shared their personal anecdotes
+of their laptop’s charge lasting roughly around a third of what it lasts on
+Chromium or Safari when using Firefox.
+
+## Alternatives
+
+Unfortunately there is no viable infallible alternative.
+
+Brave has had its share of controversy.
+
+Vivadi is not open source and in my experience, seems have broken or
+inconvenient features.
+
+Opera is basically less ambitious Vivaldi.
+
+Safari is Safari.
+
+Librewolf is a great option for privacy as it is a privacy focused fork of
+Firefox, but it unfortunately still suffers from all of the other shortcomings
+of Firefox.
+
+### What I'm Using
+
+I’m returning to Brave. Despite their controversies, I like that they are not
+Firefox based, that they are trying to innovate new ways for website owners to
+make money besides embedded ads--though parts of this are related to the
+controversies--and that they ship with an ad blocker--something that should be
+the standard by now, and would be if a company that did not its revenue from
+advertising owned the most popular browser.
+
+## More Information
+
+- [Mental Outaw's video](https://www.youtube.com/watch?v=E4JOnQY_qbo) covers the
+  information related to my privacy concerns with Firefox.
+- [One of Theo's recent videos](https://www.youtube.com/watch?v=mmjUlFIaNLE)
+  inspired me to talk about many of the ways Firefox is just an objectively bad
+  browser in this article and contains more detail on the subject.
+
+## Final Sentiments
+
+Thank you for reading my article. In thiking about this, I have come to the
+notion that we desperately need to reimagine the internet as a whole.
+
+The barrier of entry for creating and maintaining a browser engine is too high.
+HTML and potentially markup as a whole cannot be the best way to create user
+interfaces. HTTPS is more inconvenient to set up than it could be and does not
+hide where your traffic is going. JavaScript sucks. Fingerprinting is way too
+easy and should not be possible at all. A better web needs a scripting language
+that makes it impossible to fingerprint. More ways for sites to make revenue
+without embedded ads that create interests adversarial to the user would be
+nice.
+
+Perhaps AI becoming the meta interface will solve most of these issues. Making
+API calls directly through an AI interface would eliminate virtually all
+fingerprinting. HTML holding back UI will no longer be an issue. Traffic
+destinations not being private will still be an issue. Advertising will no
+longer be a viable income strategy for websites anymore.
+
+We cannot allow AI to inherit these issues. We cannot allow AI to collect your
+data for its parent corporation if this future is to be realized.

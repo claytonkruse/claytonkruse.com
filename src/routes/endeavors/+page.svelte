@@ -1,7 +1,3 @@
-<script lang="ts">
-	import meme from './startup_idea.webp';
-</script>
-
 <svelte:head>
 	<title>My Endeavors - Clayton Kruse</title>
 	<meta
@@ -14,6 +10,9 @@
 <div class="text-center">
 	<div class="m-auto max-w-fit">
 		<h1 class="border-b-[1px] border-b-zinc-800 text-4xl">My Endeavors</h1>
+
+		<br />
+
 		<nav>
 			<ul class="list-none p-0">
 				<li>
@@ -28,10 +27,6 @@
 			</ul>
 		</nav>
 	</div>
-
-	<br />
-
-	<img src={meme} alt="Meme" class="max-w-full shadow-2xl" />
 
 	<br />
 

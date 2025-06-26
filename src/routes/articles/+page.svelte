@@ -13,29 +13,28 @@
 	<meta name="keywords" content="articles, article, blog, posts, stories" />
 </svelte:head>
 
-<h1 class="mb-2 border-b-[1px] border-b-zinc-800 text-center text-2xl">
+<h1 class="mb-2 border-b-[1px] border-b-zinc-800 text-center text-3xl">
 	Articles
 </h1>
 <nav>
-	<table class="">
-		<tbody>
-			{#each data.feed.items as item}
-				<tr>
-					<td>
-						<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
-					</td>
-					<td class="align-baseline">
-						<svelte:boundary>
-							{@const date = new Date(item.pubDate)}
-							{('0' + date.getMonth()).slice(-2)}/{('0' + date.getDate()).slice(
-								-2
-							)}/{date.getFullYear()}
-						</svelte:boundary>
-					</td>
-				</tr>
-			{/each}
-		</tbody>
-	</table>
+	<ul>
+		{#each data.feed.items as item}
+			<li class="flex justify-between gap-4">
+				<div>
+					<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
+				</div>
+
+				<div class="align-baseline">
+					<svelte:boundary>
+						{@const date = new Date(item.pubDate)}
+						{('0' + date.getMonth()).slice(-2)}/{('0' + date.getDate()).slice(
+							-2
+						)}/{date.getFullYear()}
+					</svelte:boundary>
+				</div>
+			</li>
+		{/each}
+	</ul>
 </nav>
 
 <style lang="postcss">

@@ -17,11 +17,8 @@
 		</a>
 	</nav>
 	<nav>
-		<ul
-			class="gap-x-4 text-balance text-center [&>li:not(:last-child)]:mr-2 [&>li]:inline-block"
-		>
+		<ul class="flex gap-x-4 text-balance text-center">
 			<li class="grower"><a href="/">Home</a></li>
-			<li class="grower"><a href="/about/">About</a></li>
 			<li class="grower"><a href="/endeavors/">Endeavors</a></li>
 			<li class="grower"><a href="/articles/">Articles</a></li>
 		</ul>

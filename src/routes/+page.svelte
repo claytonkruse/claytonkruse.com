@@ -52,6 +52,8 @@
 	</h2>
 </hgroup>
 
+<br />
+
 <div class="max-w-2xl text-justify">
 	<h3>Skills</h3>
 	<div class="columns-[6rem] text-base/5 [&>*]:mb-2">
