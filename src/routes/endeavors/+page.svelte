@@ -16,7 +16,7 @@
 		<nav>
 			<ul class="list-none p-0">
 				<li>
-					<a href="https://toolbox.clayk.cc/to/"
+					<a href="https://ihatewebp.com/convert/"
 						>Free & Unlimited Image Converter</a
 					>
 				</li>
