@@ -9,7 +9,7 @@
 >
 	<nav class="left-5 sm:absolute">
 		<ul class="flex gap-x-4 text-balance text-center">
-			<li class="scale-110 font-mono font-bold lowercase hover:text-green-700">
+			<li class="scale-110 font-mono font-medium lowercase text-green-600">
 				<a href="/">//clayk.cc/</a>
 			</li>
 		</ul>
