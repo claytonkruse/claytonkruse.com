@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {},
 		fontFamily: {
-			sans: ['sans-serif'],
 			serif: ['Alice', 'serif'],
+			sans: ['sans-serif'],
 			mono: ['"Libertinus Mono"', 'monospace']
 		}
 	},
