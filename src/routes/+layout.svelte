@@ -19,7 +19,7 @@
 
 	<main
 		id="main"
-		class="m-auto border border-zinc-800 border-opacity-35 bg-opacity-50 p-7 backdrop-blur-[1.5px]"
+		class="m-auto border-zinc-800 border-opacity-35 bg-opacity-50 p-7"
 	>
 		{@render children?.()}
 	</main>
