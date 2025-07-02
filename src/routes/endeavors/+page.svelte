@@ -16,6 +16,9 @@
 		<nav>
 			<ul class="list-none p-0">
 				<li>
+					<a href="https://ihatewebp.com/">iHATEWebP</a>
+				</li>
+				<li>
 					<a href="https://ihatewebp.com/convert/"
 						>Free & Unlimited Image Converter</a
 					>
