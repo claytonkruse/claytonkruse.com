@@ -114,7 +114,7 @@
 
 <style lang="postcss">
 	h3 {
-		@apply text-xl uppercase tracking-[0.2em] underline decoration-green-700 decoration-double decoration-1;
+		@apply m-auto mb-4 w-min border-b-4 border-double border-green-700 px-2 text-center text-xl uppercase leading-none tracking-[0.2em] decoration-green-700 decoration-double decoration-1;
 	}
 
 	p:not(:last-child) {
