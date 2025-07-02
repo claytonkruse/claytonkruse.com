@@ -7,26 +7,25 @@
 <header
 	class="flex flex-wrap justify-center gap-x-4 border-b-[1px] border-b-zinc-800 border-opacity-35 px-2 font-serif uppercase shadow-md backdrop-blur-[2.5px]"
 >
-	<nav class="left-5 h-full sm:absolute">
-		<a href="/">
-			<img
-				src="/favicon.png"
-				alt="Home"
-				class="w-10 align-baseline shadow-2xl"
-			/>
-		</a>
+	<nav class="left-5 sm:absolute">
+		<ul class="flex gap-x-4 text-balance text-center">
+			<li class="scale-110 font-mono font-bold lowercase hover:text-green-700">
+				<a href="/">//clayk.cc/</a>
+			</li>
+		</ul>
 	</nav>
+
 	<nav>
 		<ul class="flex gap-x-4 text-balance text-center">
-			<li class="grower"><a href="/">Home</a></li>
-			<li class="grower"><a href="/endeavors/">Endeavors</a></li>
-			<li class="grower"><a href="/articles/">Articles</a></li>
+			<li class="hover:text-green-700"><a href="/">Home</a></li>
+			<li class="hover:text-green-700"><a href="/endeavors/">Endeavors</a></li>
+			<li class="hover:text-green-700"><a href="/articles/">Articles</a></li>
 		</ul>
 	</nav>
 
 	<nav class="right-5 h-full sm:absolute">
 		<ul class="flex gap-2">
-			<li class="grower">
+			<li class="hover:text-green-700">
 				<a
 					rel="nofollow noopener"
 					target="_blank"
@@ -34,7 +33,8 @@
 					aria-label="GitHub"><Github class="translate-y-[3px]" /></a
 				>
 			</li>
-			<li class="grower">
+
+			<li class="hover:text-green-700">
 				<a
 					rel="nofollow noopener"
 					target="_blank"
@@ -42,7 +42,8 @@
 					aria-label="X (Twitter)"><Twitter class="translate-y-[3px]" /></a
 				>
 			</li>
-			<li class="grower">
+
+			<li class="hover:text-green-700">
 				<a
 					rel="nofollow noopener"
 					target="_blank"
@@ -60,9 +61,5 @@
 	}
 	li a {
 		@apply block text-nowrap py-2;
-	}
-
-	.grower {
-		@apply font-bold tracking-wider transition-transform hover:scale-110;
 	}
 </style>

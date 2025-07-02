@@ -6,7 +6,7 @@ export default {
 		fontFamily: {
 			sans: ['sans-serif'],
 			serif: ['Alice', 'serif'],
-			mono: ['monospace']
+			mono: ['"Libertinus Mono"', 'monospace']
 		}
 	},
 	plugins: []

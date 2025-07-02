@@ -45,11 +45,11 @@
 </svelte:head>
 
 <hgroup class="text-center font-serif">
-	<h1 class="font-serif text-5xl font-semibold">Clayton Kruse</h1>
-	<h2 class="font-serif">
-		Hello, I am a Computer Science Major at The University of Missouri,
-		Columbia.
-	</h2>
+	<h1 class="font-serif text-5xl tracking-wider">Clayton Kruse</h1>
+	<p>
+		Hey, I'm Clayton. I am a Computer Science Major at The University of
+		Missouri, Columbia.
+	</p>
 </hgroup>
 
 <br />
@@ -114,6 +114,10 @@
 
 <style lang="postcss">
 	h3 {
-		@apply text-lg font-bold;
+		@apply text-xl uppercase tracking-[0.2em] underline decoration-green-700 decoration-double decoration-1;
+	}
+
+	p:not(:last-child) {
+		@apply mb-4;
 	}
 </style>

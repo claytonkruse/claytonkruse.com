@@ -25,7 +25,7 @@
 					<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
 				</div>
 
-				<div class="font-mono align-baseline">
+				<div class="align-baseline font-mono text-gray-700">
 					<svelte:boundary>
 						{@const date = new Date(item.pubDate)}
 						{('0' + (date.getMonth() + 1)).slice(-2)}/{(
