@@ -19,7 +19,7 @@
 		<ul class="flex gap-x-4 text-balance text-center">
 			<li class="hover:text-green-700"><a href="/">Home</a></li>
 			<li class="hover:text-green-700"><a href="/endeavors/">Endeavors</a></li>
-			<li class="hover:text-green-700"><a href="/articles/">Articles</a></li>
+			<li class="hover:text-green-700"><a href="/writings/">Writings</a></li>
 		</ul>
 	</nav>
 

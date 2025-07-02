@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Articles - Clayton Kruse</title>
+	<title>Writings - Clayton Kruse</title>
 	<meta
 		name="description"
 		content="Articles or blogposts written by Clayton Kruse on a variety of topics."
@@ -14,7 +14,7 @@
 </svelte:head>
 
 <h1 class="mb-2 border-b-[1px] border-b-zinc-800 text-center text-3xl">
-	Articles
+	Writings
 </h1>
 
 <nav>
