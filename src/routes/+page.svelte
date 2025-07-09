@@ -69,7 +69,6 @@
 		elementary school. Inspired to program at an early age, I continued on to create
 		numerous projects on the platform that far exceeded the scope of Scratch. These
 		projects required complex understanding of Algebra, Trigonometry, and Physics.
-		I did all of my programming in Scratch until I moved on in middle school.
 	</p>
 	<p>
 		In middle school, I spent a lot of time working with JavaScript and Node.JS.
@@ -96,19 +95,16 @@
 	<p>
 		I also made the switch from Windows to Unix-like operating systems in high
 		school. I fiddled around with different Linux distributions until I settled
-		on <a href="https://archlinux.org/">Arch</a>. I also run some Linux boxes at
-		home, for personal self-hosted applications.
+		on <a href="https://archlinux.org/">Arch</a>. I also run some Linux machines
+		at home, for personal self-hosted applications.
 	</p>
 	<p>
 		In college, so far I have been working on multiple web applications in <a
 			href="https://kit.svelte.dev/">SvelteKit</a
-		>. These applications have
-		<a href="https://www.sqlite.org/index.html">SQLite</a>
-		and <a href="https://www.postgresql.org/">PostgreSQL</a> databases that I
-		interact with through <a href="https://orm.drizzle.team/">Drizzle</a>. These
-		applications also include authentication functionality that I initally wrote
-		myself; however, I have migrated to
-		<a href="https://lucia-auth.com/">Lucia</a>.
+		>. These applications have and
+		<a href="https://www.postgresql.org/">PostgreSQL</a>
+		databases. These applications also include authentication functionality that
+		I wrote myself.
 	</p>
 </div>
 
