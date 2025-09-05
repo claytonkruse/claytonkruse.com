@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Twitter from '~icons/prime/twitter';
 	import LinkedIn from '~icons/akar-icons/linkedin-box-fill';
-	import Github from '~icons/akar-icons/github-fill';
+	import GitHub from '~icons/akar-icons/github-fill';
 </script>
 
 <header class="shadow-lg">
@@ -33,16 +32,7 @@
 						rel="nofollow noopener"
 						target="_blank"
 						href="/github/"
-						aria-label="GitHub"><Github class="translate-y-[3px]" /></a
-					>
-				</li>
-
-				<li class="hover:text-green-700">
-					<a
-						rel="nofollow noopener"
-						target="_blank"
-						href="/x/"
-						aria-label="X (Twitter)"><Twitter class="translate-y-[3px]" /></a
+						aria-label="GitHub"><GitHub class="translate-y-[3px]" /></a
 					>
 				</li>
 

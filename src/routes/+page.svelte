@@ -1,12 +1,12 @@
 <script lang="ts">
 	let techs = [
 		'Docker',
-		'Docker Compose',
 
 		'C',
 		'Java',
 		'Java<wbr>Script',
 		'Type<wbr>Script',
+		'Python',
 
 		'Neo<wbr>vim',
 
@@ -16,17 +16,29 @@
 
 		'SQL',
 		'Postgres',
-		'Drizzle',
+		'Drizzle<wbr>ORM',
 		'Prisma',
-		'Lucia',
 
-		'Caddy Server',
+		'Auth',
+		'SSO',
+		'CAPCHA',
 
-		'Linode VPS',
+		'Cloudflare Turnstile',
+
+		'HTTP',
+		'Networking',
+		'Firewall',
+
+		'Tailscale',
+
 		'Vercel',
+		'Linode',
+		'Hetzner',
+		'Heroku',
 
 		'Linux',
 		'Debian',
+		'Ubuntu',
 		'Arch Linux',
 		'Endeavour<wbr>OS'
 	].sort();
@@ -55,6 +67,25 @@
 <br />
 
 <div class="max-w-2xl text-justify">
+	<h3>Links</h3>
+	<nav>
+		<ul class="text-center">
+			<li>
+				<a
+					href="https://docs.google.com/document/d/1AG8CuXm4aywkYa64X6YMXsYvHeYMeeVzwqDuenn1hZ8/edit?usp=sharing"
+					>Resume</a
+				>
+			</li>
+			<li>
+				<a href="/github/">GitHub</a>
+			</li>
+			<li>
+				<a href="/in/">LinkedIn</a>
+			</li>
+		</ul>
+	</nav>
+
+	<br />
 	<h3>Skills</h3>
 	<div class="columns-[6rem] text-base/5 [&>*]:mb-2">
 		{#each techs as tech}
@@ -63,49 +94,16 @@
 	</div>
 	<br />
 
-	<h3>Hobbies</h3>
-	<p>
-		I started programing games on <a href="https://scratch.mit.edu">Scratch</a> in
-		elementary school. Inspired to program at an early age, I continued on to create
-		numerous projects on the platform that far exceeded the scope of Scratch. These
-		projects required complex understanding of Algebra, Trigonometry, and Physics.
-	</p>
-	<p>
-		In middle school, I spent a lot of time working with JavaScript and Node.JS.
-		First, I made a basic realtime updating chat application with <a
-			href="https://socket.io/">Socket.IO</a
-		>
-		and <a href="https://expressjs.com/">Express</a>. I contiuned on to make an
-		online multiplayer browser game using the same libraries, hosted on
-		<a href="https://www.heroku.com/">Heroku</a>. I ran a small flash games
-		website that was used by many students in the school. I also started hosting
-		a Minecraft server that is still online to this day.
-	</p>
-	<p>
-		In high school, I built multiple computers for my family, my friends, and
-		myself. I created a Discord bot via <a href="https://discord.js.org/"
-			>Discord.JS</a
-		>. This bot also included a frontend written in
-		<a href="https://react.dev/">React</a> and had persistent functionality that
-		I achieved with <a href="https://www.mongodb.com/">MongoDB</a> and
-		<a href="https://mongoosejs.com/">Mongoose</a>. I also wrote a HTML proxy
-		from scratch in JavaScript, before I realized there are easier solutions to
-		bypass a blocklist.
-	</p>
-	<p>
-		I also made the switch from Windows to Unix-like operating systems in high
-		school. I fiddled around with different Linux distributions until I settled
-		on <a href="https://archlinux.org/">Arch</a>. I also run some Linux machines
-		at home, for personal self-hosted applications.
-	</p>
-	<p>
-		In college, so far I have been working on multiple web applications in <a
-			href="https://kit.svelte.dev/">SvelteKit</a
-		>. These applications have and
-		<a href="https://www.postgresql.org/">PostgreSQL</a>
-		databases. These applications also include authentication functionality that
-		I wrote myself.
-	</p>
+	<h3>Interests</h3>
+	<ul class="list-disc">
+		<li>A.I. & Machine Learning</li>
+		<li>Brain Computer Interface (B.C.I.) Technology</li>
+		<li>Augmented Reality Technology</li>
+		<li>Virtual Reality Technology</li>
+		<li>Using Linux (or BSD) based operating systems.</li>
+		<li>Computer Physics Simulations</li>
+		<li>Web Development</li>
+	</ul>
 </div>
 
 <style lang="postcss">

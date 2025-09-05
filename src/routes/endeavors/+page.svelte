@@ -26,7 +26,6 @@
 				<li>
 					<a href="https://minewolf.net/">Minecraft Server List Platform</a>
 				</li>
-				<li><a href="https://survival.minewolf.net/">Minecraft Server</a></li>
 			</ul>
 		</nav>
 	</div>
