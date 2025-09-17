@@ -96,11 +96,11 @@
 
 	<h3>Interests</h3>
 	<ul class="list-disc">
-		<li>A.I. & Machine Learning</li>
+		<li>A.I. & Machine Learning (M.L.)</li>
 		<li>Brain Computer Interface (B.C.I.) Technology</li>
-		<li>Augmented Reality Technology</li>
-		<li>Virtual Reality Technology</li>
-		<li>Using Linux (or BSD) based operating systems.</li>
+		<li>Augmented Reality Technology (A.R.)</li>
+		<li>Virtual Reality Technology (V.R.)</li>
+		<li>Using Linux (or B.S.D.) based operating systems.</li>
 		<li>Computer Physics Simulations</li>
 		<li>Web Development</li>
 	</ul>
