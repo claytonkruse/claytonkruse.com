@@ -1,5 +1,6 @@
 {
 	"name": "claytonkruse-com",
+	"type": "module",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -44,7 +45,6 @@
 		"vite": "^6.0.3",
 		"vitest": "^3.0.7"
 	},
-	"type": "module",
 	"dependencies": {
 		"rss-parser": "^3.13.0"
 	}
