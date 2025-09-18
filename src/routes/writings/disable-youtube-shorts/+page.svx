@@ -9,7 +9,8 @@ For the most part, I hate Shorts. For every valuable video, there are a hundred 
 
 Shorts are the most addictive when accessed on a phone. Unfortunately the only way to disable YouTube Shorts on a mobile device is by replacing the official YouTube app with a third party one. I have done this on my Android devices, though there seems to be no viable methods for iOS. There is a way — supported on both Android and iOS — to temporarily hide them via clicking “Not Interested” on all of them; however, in my experience, Shorts reappear within hours. With this in mind, I have decided to completely remove the YouTube app from my iPhone. Instead, I will only access YouTube from the computer, and my Android devices.
 
-Removing Shorts from YouTube.com
+## Removing Shorts from YouTube.com
+
 To remove YouTube Shorts from the browser, I initially wanted to use an extension. After surfing around for one on the store, I noticed that none of them were open-source, which is a requirement. I almost thought about writing one myself, but fortunately I came across some uBlock filters, and some manual install extensions.
 
 I decided to go with [a uBlock filter](https://github.com/gijsdev/ublock-hide-yt-shorts). I did this because a uBlock filter will not require me to install a closed-source extension, manually install an extension, or run someone else’s JavaScript like adding a GreasyFork user script to ViolentMonkey.
