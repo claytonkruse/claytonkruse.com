@@ -1,0 +1,24 @@
+---
+title: Why I Chose Fidelity instead of Vanguard or Schwab
+date: November 10th, 2024
+---
+
+As soon as I got my first paycheck I wanted to start investing. I tried to make an investing account with the bank my mom had opened a custodial account for me at, but being under 18 I was not allowed access to an investing platform.
+
+The moment I turned 18 I decided to get serious about my finances. I opened my own checking and savings accounts at several different institutions, and after a little bit of research, I decided to open a brokerage account at Charles Schwab.
+
+For a while, I was content with Schwab. From reading reviews I heard that they had a tiny bit of interest on their Investor Checking Account, one of the best trading platforms, an okay mobile app, and some of the lowest fees. But, after a while I started to notice some offerings that the competition offered that Schwab does not.
+
+While Schwab does offer a slightly better rate on their checking account (When I signed up for the account the APY was above 0.8%, now it’s currently at 0.2%) than other online banks like Capital One and Ally (both currently 0.1% APY), that rate does not compare to what you can get in a high yield savings account at either of those institutions (currently 4% APY at both). To get a comparable rate at Schwab, you have to manually order your money to be put into their money market fund. This is a pain because every time you want to buy a stock or withdrawal money from Schwab, you first have to manually order a withdrawal from the fund.
+
+After realizing this I decided to see if there were better options. After doing some research I discovered that Vanguard and Fidelity automatically sweep uninvested cash. At both institutions you can choose between a money market fund (currently 4.43% APY at Fidelity) or an FDIC insured deposit (2.35% APY at Fidelity). After this, I knew I had made the wrong choice, so I opened an account at Vanguard because the rates were and still are slightly better than at Fidelity. After opening an account at Vanguard, I tried it out for a few months and decided I also wanted to try Fidelity.
+
+Fidelity immediately impressed me. I had told myself that I did not need a fantastic mobile app for investing because I thought I would do most of it at a computer, but I ended up doing it mostly from my phone. But after using Fidelity’s app, I do not want to go back.
+
+The next thing that impressed me was that my brokerage account was also essentially a checking account. At Fidelity you are given your routing and account numbers, and you can even order a debit card. This means that at Fidelity you can effectively have a checking account that earns a greater yield than a high interest savings account. What I found particularly amazing about this is that if I were to make my Fidelity account my main checking account, I would no longer have to wait three days for money to transfer between my checking and my brokerage account, and I would not have to worry about savings account transaction limits. This was an entirely amazing discovery for me.
+
+Another nice thing I noticed about Fidelity is that when you go to buy a mutual fund, it asks you if you want to set up automated reoccurring investments. At Schwab, setting this up had been a pain due to the feature being hidden away and overall not very well designed. Fidelity allows you to setup the functionality simply and smoothly with the option to set an end date and to use an external bank account to pay (I do not remember Schwab having either of these options, but I cannot confirm while writing this because when trying to access the feature from the online Schwab dashboard it is telling me that “Automatic Investing is unavailable at this time).
+
+Fidelity also has low fee mutual funds. I was under the impression that Schwab had the lowest fees, but Fidelity has several funds, including a total stock market ETF (FZROX), that are currently zero fee. Even though Vanguard has slightly better rates on uninvested cash than Fidelity, the lower fees make that up to me.
+
+In conclusion, if you want to do investing and/or banking at the same place, with very low hassle, Fidelity is currently the place to be.

@@ -1,23 +1,37 @@
-import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import Parser from 'rss-parser';
-const parser = new Parser();
 
-export const prerender = false;
+export const prerender = true;
 
-// I do not know SvelteKit well enough to know if this actually works.
-let cache: any;
-let cacheExpiry: number = Date.now();
+const files = import.meta.glob('./*/+page.svx');
 
 export const load: PageServerLoad = async () => {
-	if (!cache || Date.now() > cacheExpiry) {
-		console.log('Refreshing article cache...');
-		cache = await parser
-			.parseURL('https://medium.com/feed/@claytonkruse')
-			.catch(() => error(429, 'Could not get data from Medium.'));
-		cacheExpiry = Date.now() + 900_000; // cache lasts 900 sec (15 min)
-		console.log('Got new article cache.');
-	}
-	const feed = cache;
-	return { feed };
+	const posts = await Promise.all(
+		Object.entries(files).map(async ([path, resolver]) => {
+			const { metadata } = (await resolver()) as any;
+			const slug = path.slice(2, -10);
+
+			return { slug, ...metadata };
+		})
+	);
+
+	posts.sort(
+		(a, b) =>
+			new Date(
+				a.date
+					.replace('th', '')
+					.replace('st', '')
+					.replace('nd', '')
+					.replace('rd', '')
+			).getTime() -
+			new Date(
+				b.date
+					.replace('th', '')
+					.replace('st', '')
+					.replace('nd', '')
+					.replace('rd', '')
+			).getTime()
+	);
+	posts.reverse(); // most recent first
+
+	return { posts };
 };

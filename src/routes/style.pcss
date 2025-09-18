@@ -4,7 +4,7 @@ body {
 	@apply bg-zinc-950 font-serif text-zinc-200;
 	@apply selection:bg-green-600 selection:bg-opacity-40 selection:text-zinc-200;
 
-	font-size: 18px;
+	font-size: 17px;
 
 	background-image:
 		linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
@@ -26,6 +26,12 @@ a:not(header *) {
 		@apply mb-4 text-5xl;
 	}
 
+	p,
+	ol,
+	ul {
+		@apply leading-[1.1rem];
+	}
+
 	p {
 		@apply mb-2;
 	}
@@ -36,10 +42,10 @@ a:not(header *) {
 		}
 
 		p {
-			@apply mb-0 text-xl font-bold italic leading-6 text-zinc-500;
+			@apply mb-0 text-xl font-bold italic leading-6;
 		}
 
-		@apply mb-3;
+		@apply mb-3 text-amber-500;
 	}
 
 	h2,
@@ -52,10 +58,23 @@ a:not(header *) {
 
 	h2 {
 		@apply text-2xl;
-		@apply text-red-800;
+		@apply text-amber-700;
 	}
 
-	h4 {
-		@apply text-zinc-600;
+	h3 {
+		@apply text-amber-900;
+	}
+
+	ol {
+		@apply list-decimal;
+	}
+
+	ul {
+		@apply list-disc;
+	}
+
+	ol,
+	ul {
+		@apply mb-4 ml-6 last:mb-0;
 	}
 }

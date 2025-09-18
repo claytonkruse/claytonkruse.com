@@ -19,19 +19,26 @@
 
 <nav>
 	<ul>
-		{#each data.feed.items as item}
+		{#each data.posts as item}
 			<li class="flex justify-between gap-4">
 				<div>
-					<a rel="noopener" target="_blank" href={item.link}>{item.title}</a>
+					<a href={item.slug}>{item.title}</a>
 				</div>
 
 				<div class="align-baseline font-mono text-gray-700">
 					<svelte:boundary>
-						{@const date = new Date(item.pubDate)}
+						{@const date = new Date(
+							item.date
+								.replace('th', '')
+								.replace('st', '')
+								.replace('nd', '')
+								.replace('rd', '')
+						)}
 						{('0' + (date.getMonth() + 1)).slice(-2)}/{(
 							'0' + date.getDate()
 						).slice(-2)}/{date.getFullYear()}
 					</svelte:boundary>
+					<!-- {item.date} -->
 				</div>
 			</li>
 		{/each}

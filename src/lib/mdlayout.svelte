@@ -8,13 +8,14 @@
 	<meta name="description" content={description} />
 </svelte:head>
 
-<div class="prose max-w-xl">
+<div class="prose max-w-2xl">
 	<hgroup>
-		<h1 class="">{title}</h1>
+		<h1 class="text-balance">{title}</h1>
 		{#if subtitle}
-			<p>{subtitle}</p>
+			<p class="text-balance">{subtitle}</p>
 		{/if}
-		<p class="!text-sm italic !leading-3 opacity-30">{date}; Clayton Kruse</p>
+
+		<p class="mt-2 !text-sm italic text-zinc-400 opacity-50">{date}</p>
 	</hgroup>
 
 	{@render children()}

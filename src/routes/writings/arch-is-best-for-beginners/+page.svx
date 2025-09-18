@@ -1,0 +1,18 @@
+---
+title: Arch is the Best Linux for Beginners
+date: November 28th, 2022
+---
+
+Allow me to first of all say that at the time of writing this, I am new to Linux. For years I have been wanting to switch to Linux; six months ago I finally installed my first distribution: Arch Linux.
+
+I chose Arch as my first distribution for one primary reason: it sounded cool. Arch is a challenging distribution right from the start. In order to install Arch you must know what components a system requires and how to use basic command-line tools to install and configure those components. Arch also has a reputation for breaking frequently.
+
+Arch has broken on me twice. The first time GRUB croaked after a system update. I completely reinstalled the bootloader from the Arch USB Flash Installation Medium in order to be able to reach my display manager. The second time my Arch system broke was again after an update. I could boot into and use the system, but I could not access the command-line. This time all that was necessary was a subsequent update from within the installation medium the following afternoon.
+
+Intuitively you would think that a distribution like this would be a terrible choice for beginners; however, for some the challenge can be motivating. Another reason such a distribution is perfect for beginners is that learning to install and use an Arch system is the quickest way to become proficient at Linux.
+
+While it might be difficult for a new Linux user, as well as time consuming, learning this teaches them the basics of their system from the very beginning, preparing them for problems they may face down the line. This knowledge will allow the new user to further understand the modularity of a GNU system, and also therefore enable the user to better compare other Linux distributions.
+
+Finally, The Arch Linux Wiki is the greatest reason Arch is the best first distribution. Beginning with the Arch Installation Guide immediately exposes the new user to the most useful source of information for GNU/Linux I have ever seen. There is nowhere else have I witnessed information about Linux displayed so accessibly and concisely.
+
+Arch Linux is the best first distribution because it teaches its users what distributions are, teaches them how to use one, and teaches it all in the fastest time.

@@ -1,0 +1,10 @@
+---
+title: I Made a Better Way to Convert Images
+date: February 24th, 2025
+---
+
+Google “webp to png converter” and it will give you a long list of websites that offer to do just that, but for a price. Many of these websites will convert an image for you, and then require that you pay for all additional images. Some limit the size of your upload. Most have way too many settings and options when you just want to get this done quick. Some require you to make an account just to convert an image file. Almost all of them are incredibly slow. And after all of this, some will even surprise you with a paywall after you spent all that time setting it up. This is unacceptable.
+
+All of these problems inspired me to create Toolbox, a suite of easy to use tools for all sorts of simple tasks. My goal with Toolbox is to provide truly unlimited and free access to these tools, at a better convenience.
+
+As of today, Toolbox only has image file conversion functionality, but I plan on adding many additional tools for more simple image manipulations that currently require disproportionate hassle.

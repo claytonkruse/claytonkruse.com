@@ -1,7 +1,7 @@
 ---
 title: Firefox is Dead
-subtitle: And Mozilla Killed It.
-date: 3-2-2025
+subtitle: and Mozilla Killed It.
+date: February 28th, 2025
 ---
 
 Uninstall Firefox. It is finally dead. The only reason anyone is still using it
@@ -44,17 +44,13 @@ Chromium or Safari when using Firefox.
 
 Unfortunately there is no viable infallible alternative.
 
-Brave has had its share of controversy.
-
-Vivadi is not open source and in my experience, seems have broken or
+- Brave has had its share of controversy.
+- Vivadi is not open source and in my experience, seems have broken or
 inconvenient features.
-
-Opera is basically less ambitious Vivaldi.
-
-Safari is Safari.
-
-Librewolf is a great option for privacy as it is a privacy focused fork of
-Firefox, but it unfortunately still suffers from all of the other shortcomings
+- Opera is basically less ambitious Vivaldi.
+- Safari is Safari.
+- Librewolf would be a great option for privacy--as it is a privacy focused fork of
+Firefox--but the developers seem more concerned about policing the politics of their users (something I do not want the developers of my "privacy" browser to care about), and it unfortunately still suffers from all of the other shortcomings
 of Firefox.
 
 ### What I'm Using
