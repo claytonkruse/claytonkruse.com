@@ -97,6 +97,7 @@
 	<h3>Interests</h3>
 	<ul class="list-disc">
 		<li>A.I. & Machine Learning (M.L.)</li>
+		<li>Finance</li>
 		<li>Brain Computer Interface (B.C.I.) Technology</li>
 		<li>Augmented Reality Technology (A.R.)</li>
 		<li>Virtual Reality Technology (V.R.)</li>
