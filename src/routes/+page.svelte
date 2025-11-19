@@ -58,15 +58,15 @@
 
 <hgroup class="text-center font-serif">
 	<h1 class="font-serif text-5xl tracking-wider">Clayton Kruse</h1>
-	<p>
-		Hey, I'm Clayton. I am a Computer Science Major at The University of
-		Missouri, Columbia.
-	</p>
 </hgroup>
 
-<br />
-
 <div class="max-w-2xl text-justify">
+	<p>
+		I am a third year Computer Science Major at The University of Missouri,
+		Columbia. <br />I am in pursuit of a Summer 2026 Software Engineering
+		internship.
+	</p>
+
 	<h3>Links</h3>
 	<nav>
 		<ul class="text-center">
