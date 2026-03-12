@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<title>Clayton Kruse - Computer Science Student</title>
+	<title>Clayton Kruse // Computer Science // Projects</title>
 	<meta
 		name="description"
 		content="Welcome to Clayton Kruse's personal website. Hello, this is Clayton. I am Computer Science Major at Mizzou."
@@ -63,27 +63,30 @@
 <div class="max-w-2xl text-justify">
 	<p>
 		I am a third year Computer Science Major at The University of Missouri,
-		Columbia. <br />I am in pursuit of a Summer 2026 Software Engineering
-		internship.
+		Columbia.
 	</p>
 
-	<h3>Links</h3>
-	<nav>
-		<ul class="text-center">
-			<li>
-				<a
-					href="https://docs.google.com/document/d/1AG8CuXm4aywkYa64X6YMXsYvHeYMeeVzwqDuenn1hZ8/edit?usp=sharing"
-					>Resume</a
-				>
-			</li>
-			<li>
-				<a href="/github/">GitHub</a>
-			</li>
-			<li>
-				<a href="/in/">LinkedIn</a>
-			</li>
-		</ul>
-	</nav>
+	<h3>Projects</h3>
+	<div class="m-auto max-w-fit">
+		<nav>
+			<ul class="list-none p-0">
+				<li>
+					<a href="https://ihatewebp.com/">iHATEWebP</a>
+				</li>
+				<li>
+					<a href="https://ihatewebp.com/convert/"
+						>Free & Unlimited Image Converter</a
+					>
+				</li>
+				<li>
+					<a href="https://minewolf.net/">Minecraft Server List Platform</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<p class="text-center text-sm text-gray-400">
+		Also see my <a href="/work-history/">Work History</a>.
+	</p>
 
 	<br />
 	<h3>Skills</h3>
@@ -95,21 +98,21 @@
 	<br />
 
 	<h3>Interests</h3>
-	<ul class="list-disc">
-		<li>A.I. & Machine Learning (M.L.)</li>
-		<li>Finance</li>
-		<li>Brain Computer Interface (B.C.I.) Technology</li>
-		<li>Augmented Reality Technology (A.R.)</li>
-		<li>Virtual Reality Technology (V.R.)</li>
-		<li>Using Linux (or B.S.D.) based operating systems.</li>
-		<li>Computer Physics Simulations</li>
-		<li>Web Development</li>
+	<ul class="list-disc pl-6">
+		<li>A.I. & Machine Learning</li>
+		<li>Brain Computer Interface Tech</li>
+		<li>Augmented Reality (A.R.)</li>
+		<li>Virtual Reality (V.R.)</li>
+		<li>Innovative operating systems</li>
+		<li>Computer physics simulations</li>
+		<li>Web dev</li>
 	</ul>
 </div>
 
 <style lang="postcss">
 	h3 {
-		@apply m-auto mb-4 w-min border-b-4 border-double border-green-700 px-2 text-center text-xl uppercase leading-none tracking-[0.2em] decoration-green-700 decoration-double decoration-1;
+		@apply m-auto mb-4 w-min border-b-4 border-double border-green-700 px-[0.3em] text-center text-xl uppercase leading-none tracking-[0.2em] decoration-green-700 decoration-double decoration-1;
+		@apply pl-[0.5em]; /* compensates for the tracking on the last letter; tell me if you know a better way to do this. */
 	}
 
 	p:not(:last-child) {

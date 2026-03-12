@@ -29,6 +29,7 @@
 		congradulated on the exemplery job I had done in the position.
 	</p>
 
+	<br />
 	<h3>Dierbergs</h3>
 	<p>
 		My second job was working full time at Dierberg's in the Deli department.
@@ -41,6 +42,7 @@
 		I was also in charge of training new part-time hires.
 	</p>
 
+	<br />
 	<h3>Dairy Queen</h3>
 	<p>
 		My first job was working part time at Dairy Queen in the back, A.K.A. the

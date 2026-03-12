@@ -17,11 +17,16 @@
 
 		<nav>
 			<ul class="flex gap-x-4 text-balance text-center">
-				<li class="hover:text-green-700"><a href="/">Home</a></li>
+				<li class="hover:text-green-700"><a href="/">Projects</a></li>
 				<li class="hover:text-green-700">
-					<a href="/endeavors/">Endeavors</a>
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://docs.google.com/document/d/1AG8CuXm4aywkYa64X6YMXsYvHeYMeeVzwqDuenn1hZ8/edit?usp=sharing"
+						>Resume</a
+					>
 				</li>
-				<li class="hover:text-green-700"><a href="/writings/">Writings</a></li>
+				<li class="hover:text-green-700"><a href="/writings/">Blog</a></li>
 			</ul>
 		</nav>
 
