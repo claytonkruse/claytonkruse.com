@@ -40,7 +40,9 @@
 		'Debian',
 		'Ubuntu',
 		'Arch Linux',
-		'Endeavour<wbr>OS'
+		'Endeavour<wbr>OS',
+
+		'MATLAB'
 	].sort();
 </script>
 
