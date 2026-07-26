@@ -47,7 +47,9 @@
 			<div class="mt-1">
 				<p class="text-sm font-light mb-0 text-left">
 					{project.description}
-					<a href={project.post} class="text-xs text-nowrap">Read More</a>
+					{#if project.post}
+						<a href={project.post} class="text-xs text-nowrap">Read More</a>
+					{/if}
 				</p>
 			</div>
 
