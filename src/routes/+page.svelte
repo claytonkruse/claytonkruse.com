@@ -61,7 +61,7 @@
 </hgroup>
 
 <div class="w-[700px] mt-6 text-justify">
-	<h3>Projects</h3>
+	<h3 id="projects">Projects</h3>
 	<div class="m-auto max-w-fit">
 		<Projects />
 	</div>
