@@ -29,6 +29,10 @@
 <svelte:window onscroll={updateParallaxOffset} />
 
 <div id="parallax" class="h-full" style={`--parallax-offset: ${parallaxOffset}px;`}>
+	<div class="parallax-backdrop" aria-hidden="true">
+		<div class="parallax-backdrop__pattern"></div>
+	</div>
+
 	<div id="base">
 		<div id="content" class="flex h-max min-h-full flex-col justify-between">
 			<Header />
@@ -50,27 +54,46 @@
 		isolation: isolate;
 	}
 
-	#parallax::before,
-	#parallax::after {
+	.parallax-backdrop {
+		--tile: 256px;
 		position: fixed;
-		inset: -20lvh 0;
-		content: '';
+		inset: 0;
+		z-index: -2;
+		overflow: hidden;
 		pointer-events: none;
 	}
 
-	#parallax::before {
-		z-index: -2;
+	.parallax-backdrop__pattern {
+		position: absolute;
+		top: calc(var(--tile) * -1);
+		right: 0;
+		bottom: calc(var(--tile) * -1);
+		left: 0;
 		background-image: url(/patterns/fancy-pants.jpg);
-		background-position: top left;
 		background-repeat: repeat;
-		background-size: 256px 256px;
-		transform: translateY(calc(var(--parallax-offset, 0px) * -1));
-		will-change: transform;
+		background-size: var(--tile) var(--tile);
+		background-position: 0 calc(var(--parallax-offset, 0px) * -1);
+		animation: parallax-pattern-drift 50s linear infinite;
+		will-change: transform, background-position;
+	}
+
+	@keyframes parallax-pattern-drift {
+		from {
+			transform: translateY(0);
+		}
+
+		to {
+			transform: translateY(256px);
+		}
 	}
 
 	#parallax::after {
+		position: fixed;
+		inset: 0;
 		z-index: -1;
-		background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
+		content: '';
+		pointer-events: none;
+		background-image: linear-gradient(rgba(255, 128, 0, 0.1), rgba(15, 0, 30, 0.8));
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;

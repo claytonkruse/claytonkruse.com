@@ -5,7 +5,7 @@
 
 <header class="shadow-lg">
 	<div
-		class="flex flex-wrap justify-center lowercase gap-x-4 border-b border-b-zinc-800/35 px-2 font-mono backdrop-blur-sm"
+		class="bg-cyan-950/30 flex flex-wrap justify-center lowercase gap-x-4 border-b-2 border-green-500/30 px-2 font-mono backdrop-blur-xs"
 	>
 		<nav>
 			<ul class="flex gap-x-4 text-balance text-center">
