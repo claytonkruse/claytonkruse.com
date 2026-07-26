@@ -43,5 +43,39 @@ export const projects = [
 			'sso',
 			'linux'
 		]
+	},
+	{
+		name: 'Password Generator',
+		// post: '/writings/ihatewebp/',
+		link: 'https://ihatewebp.com/password-generator/',
+		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/password-generator',
+		description:
+			'A fun and memorable password generator with many options, bells and whistles. A new addition to iHATEWebP.',
+		tags: ['svelte', 'shadcn-svelte']
+	},
+	{
+		name: 'Image Transformer',
+		// post: '/writings/ihatewebp/',
+		link: 'https://ihatewebp.com/',
+		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes',
+		description:
+			'A set of simple tools to compress, transform, and edit images. This is now part of iHATEWebP.',
+		tags: ['svelte', 'javascript']
+	},
+	{
+		name: 'Image Compressor',
+		// post: '/writings/ihatewebp/',
+		link: 'https://ihatewebp.com/convert/',
+		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/compress',
+		description: 'A simple tool to compress images. This is now part of iHATEWebP.',
+		tags: ['svelte', 'javascript']
+	},
+	{
+		name: 'Image Converter',
+		// post: '/writings/ihatewebp/',
+		link: 'https://ihatewebp.com/convert/',
+		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/convert',
+		description: 'A simple tool to convert WebP images to PNG. This is now part of iHATEWebP.',
+		tags: ['svelte', 'javascript']
 	}
 ];
