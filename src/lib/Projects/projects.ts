@@ -22,7 +22,7 @@ export const projects = [
 		link: 'https://ihatewebp.com/',
 		source: 'https://github.com/claytonkruse/ihatewebp',
 		description:
-			'Initially a simple tool to convert WebP images to PNG that became a suite of convenient tools for the web.',
+			'Initially a simple tool to convert WebP images to PNG, which later grew into a suite of convenient tools for the web.',
 		tags: ['svelte', 'tailwindcss']
 	},
 	{
