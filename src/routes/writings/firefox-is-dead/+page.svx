@@ -72,7 +72,7 @@ advertising owned the most popular browser.
 
 ## Final Sentiments
 
-Thank you for reading my article. In thiking about this, I have come to the
+Thank you for reading my article. In thinking about this, I have come to the
 notion that we desperately need to reimagine the internet as a whole.
 
 The barrier of entry for creating and maintaining a browser engine is too high.

@@ -56,7 +56,9 @@
 	</p>
 </div>
 
-<style lang="postcss">
+<style>
+	@reference '../style.css';
+
 	h3 {
 		@apply text-lg font-bold;
 	}

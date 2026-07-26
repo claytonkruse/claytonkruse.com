@@ -40,10 +40,10 @@
 		'Debian',
 		'Ubuntu',
 		'Arch Linux',
-		'Endeavour<wbr>OS',
-
-		'MATLAB'
+		'Endeavour<wbr>OS'
 	].sort();
+
+	import Projects from '$lib/Projects/Projects.svelte';
 </script>
 
 <svelte:head>
@@ -52,41 +52,20 @@
 		name="description"
 		content="Welcome to Clayton Kruse's personal website. Hello, this is Clayton. I am Computer Science Major at Mizzou."
 	/>
-	<meta
-		name="keywords"
-		content="clayton, kruse, computer, computers, tech, technology, anime"
-	/>
+	<meta name="keywords" content="clayton, kruse, computer, computers, tech, technology, anime" />
 </svelte:head>
 
 <hgroup class="text-center font-serif">
 	<h1 class="font-serif text-5xl tracking-wider">Clayton Kruse</h1>
+	<p>I am a senior Computer Science Major at Mizzou.</p>
 </hgroup>
 
-<div class="max-w-2xl text-justify">
-	<p>
-		I am a third year Computer Science Major at The University of Missouri,
-		Columbia.
-	</p>
-
+<div class="w-[700px] mt-6 text-justify">
 	<h3>Projects</h3>
 	<div class="m-auto max-w-fit">
-		<nav>
-			<ul class="list-none p-0">
-				<li>
-					<a href="https://ihatewebp.com/">iHATEWebP</a>
-				</li>
-				<li>
-					<a href="https://ihatewebp.com/convert/"
-						>Free & Unlimited Image Converter</a
-					>
-				</li>
-				<li>
-					<a href="https://minewolf.net/">Minecraft Server List Platform</a>
-				</li>
-			</ul>
-		</nav>
+		<Projects />
 	</div>
-	<p class="text-center text-sm text-gray-400">
+	<p class="mt-4 text-center text-sm text-gray-400">
 		Also see my <a href="/work-history/">Work History</a>.
 	</p>
 
@@ -111,7 +90,9 @@
 	</ul>
 </div>
 
-<style lang="postcss">
+<style>
+	@reference './style.css';
+
 	h3 {
 		@apply m-auto mb-4 w-min border-b-4 border-double border-green-700 px-[0.3em] text-center text-xl uppercase leading-none tracking-[0.2em] decoration-green-700 decoration-double decoration-1;
 		@apply pl-[0.5em]; /* compensates for the tracking on the last letter; tell me if you know a better way to do this. */

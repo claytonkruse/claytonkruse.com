@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+@import '@fontsource-variable/fira-code/wght.css';
+
+@theme {
+	--font-serif: Alice, serif;
+	--font-sans: sans-serif;
+	--font-mono: 'Fira Code Variable', monospace;
+}
+
+:root,
+body {
+	@apply min-h-full;
+	@apply bg-zinc-950 font-serif text-zinc-200;
+	/* @apply selection:bg-green-600 selection:bg-opacity-40 selection:text-zinc-200; */
+
+	font-size: 18px;
+}
+
+body {
+	@apply overflow-y-scroll;
+}
+
+a:not(header *) {
+	@apply text-cyan-700 visited:text-pink-700 hover:text-green-700 hover:underline;
+}
+
+.prose {
+	h1 {
+		@apply mb-4 text-5xl;
+	}
+
+	p,
+	ol,
+	ul {
+		@apply leading-[1.1rem];
+	}
+
+	p {
+		@apply mb-2;
+	}
+
+	hgroup {
+		h1 {
+			@apply mb-0 leading-9;
+		}
+
+		p {
+			@apply mb-0 text-xl font-bold italic leading-6;
+		}
+
+		@apply mb-3 text-amber-500;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply mt-2 text-lg font-bold;
+	}
+
+	h2 {
+		@apply text-2xl;
+		@apply text-amber-700;
+	}
+
+	h3 {
+		@apply text-amber-900;
+	}
+
+	ol {
+		@apply list-decimal;
+	}
+
+	ul {
+		@apply list-disc;
+	}
+
+	ol,
+	ul {
+		@apply mb-4 ml-6 last:mb-0;
+	}
+}
