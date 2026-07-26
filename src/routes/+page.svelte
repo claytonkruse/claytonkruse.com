@@ -60,7 +60,7 @@
 	<p>I am a senior Computer Science Major at Mizzou.</p>
 </hgroup>
 
-<div class="w-[700px] mt-6 text-justify">
+<div class="w-[700px] text-justify">
 	<h3 id="projects">Projects</h3>
 	<div class="m-auto max-w-fit">
 		<Projects />
@@ -69,14 +69,12 @@
 		Also see my <a href="/work-history/">Work History</a>.
 	</p>
 
-	<br />
 	<h3>Skills</h3>
 	<div class="columns-[6rem] text-base/5 [&>*]:mb-2">
 		{#each techs as tech}
 			<div><span class="inline-block">{@html tech}</span></div>
 		{/each}
 	</div>
-	<br />
 
 	<h3>Interests</h3>
 	<ul class="list-disc pl-6">
@@ -94,7 +92,7 @@
 	@reference './style.css';
 
 	h3 {
-		@apply m-auto mb-4 w-min border-b-4 border-double border-green-700 px-[0.3em] text-center text-xl uppercase leading-none tracking-[0.2em] decoration-green-700 decoration-double decoration-1;
+		@apply m-auto mb-4 pt-8 w-min border-b-4 border-double border-green-700 px-[0.3em] text-center text-xl uppercase leading-none tracking-[0.2em] decoration-green-700 decoration-double decoration-1;
 		@apply pl-[0.5em]; /* compensates for the tracking on the last letter; tell me if you know a better way to do this. */
 	}
 
