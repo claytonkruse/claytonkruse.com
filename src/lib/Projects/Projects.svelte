@@ -13,7 +13,7 @@
 		class:text-sky-700={tag === 'postgres'}
 		class:text-sky-400={tag === 'tailwindcss'}
 		class:text-amber-500={tag === 'closed source'}
-		class:text-green-500={tag === 'open source'}
+		class:text-green-500={tag === 'source available'}
 		class="bg-current/5 h-5 rounded-lg border border-current/30 px-1.5 py-0.5 text-xs font-medium whitespace-nowrap"
 	>
 		{tag}
@@ -24,8 +24,8 @@
 	{#each projects as project}
 		<article class="bg-current/5 border backdrop-blur-md border-current/20 p-4 pt-3.5 rounded-md">
 			<div class="flex justify-between">
-				{#if project.link}
-					<a href={project.link} target="_blank">
+				{#if project.link || project.post}
+					<a href={project.link || project.post} target="_blank">
 						<h3 class="text-lg font-semibold">{project.name}</h3>
 					</a>
 				{:else}
@@ -34,7 +34,7 @@
 				{#if project.source}
 					<a href={project.source} target="_blank">
 						<ul>
-							{@render tag('open source')}
+							{@render tag('source available')}
 						</ul>
 					</a>
 				{:else}

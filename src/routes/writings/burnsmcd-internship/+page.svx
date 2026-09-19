@@ -1,0 +1,119 @@
+---
+title: My Internship at Burns & McDonnell
+date: September 6, 2026
+unlisted: true
+---
+
+Over this past summer, I had the pleasure of getting to work as a Software Developer Intern at Burns & McDonnell.
+During my time there, I was given full creative control over a previously shelved initiative: ***The Aviation & Federal Project Portal***, or the *A&F Portal* for brevity.
+
+The ambition of the A&F Portal was to integrate every project workflow and datasource across Burns & Mac into 
+a single dashboard, centralizing everything to provide *standardization* and *convenience* for everyone from *project managers* to *individual engineers*.
+
+I learned that *this ambition*, is ultimately why the project was originally shelved:
+The bigger things are, the harder they fall, and nobody wants to put their name on the tower until they can see piles already driven firmly into the ground.
+This is also why such an important project ended up in my hands.
+To spell it out: the lower pay of an intern means less upfront investment is necessary, and the expectations are low.
+
+The cost of low expectations is that you naturally cannot expect people to respect you.
+As generous as people in positions of power within a corporation can be, nobody in that position is jumping at the opportunity 
+to invest a ton of their valuable time into an intern project.
+
+I started on the project by asking my developer team as many questions as possible. The project was initially described to me as a
+dashboard for PMs. I did not find this very descriptive, so I probed further and figured out that this dashboard was not meant to 
+be a personal dashboard for PMs, but an application that could provide them with a separate dashboard for every project at the firm. 
+The team also advised me that I should make it ***customizable*** due to the diversity of workflows and philosophies the app would be serving.
+
+After probing further about what they meant by "customizable", I saw two options in front of me:
+
+1. A traditional preset layout
+    - Customizability through the option to remove widgets from the layout
+    - Pros:
+        - Responsive design possible (can be designed for any screen size)
+        - Standardized layout
+    - Cons:
+        - Not intuitive
+        - Limited customizability
+            - Preset widget place
+            - Preset widget size
+2. A fully customizable grid based drag and drop layout
+    - Customizability through dragging only the widgets you want into the layout
+        - Drop widgets anywhere you want
+        - Make widgets any size you want
+    - Pros:
+        - Fully customizable
+        - More intuitive
+        - More impressive
+    - Cons:
+        - Responsive design not possible (usability will suffer on devices with small screens)
+        - Vastly more complicated
+            - Grid drag and drop engine
+            - Layout serialization and saving
+            - Widgets need to be designed for variable sizes
+    
+Looking at the pros and cons, I asked myself: Is it too much to ask for both?
+I came up with a greedy idea: I would have everything: I would eat my cake and have it too: Do both.
+
+The plan became creating the grid layout option, and providing every user with standardized traditional (non-grid) layouts
+that would be completely immutable.
+
+- Fully customizable
+- More standardized and opinionated than either layout alone
+- Responsive
+- Intuitive
+
+The only con is that this would be double the work. I knowingly took on that challenge.
+
+Work ended that day, and I immediately went home and started building.
+I did this due to my passion for my ideas, and because I understood the urgency of the situation.
+If I wanted to make this thing real, and leave my mark on Burns & McDonnell, I had to make this app 
+production ready before the end of my internship in **3 months** time.
+
+I decided to build the grid layout first, because I knew that impressing fast was the key to being taken seriously.
+I saw it as the only way I could get the project rolling. Being taken seriously from the start was paramount.
+I brought a demo of the drag and drop functionality to work the next day. The team was impressed and my mentor
+got in contact with the PMT. He scheduled a meeting with them a few weeks out to officially reopen the initiative.
+
+In the meantime I implemented functionality and created a catalog of widgets. I even implemented a wiggling
+animation for when the layout was in edit mode. My team decided I should present my work at the 
+intern charrette after the engineering interns were finished presenting their project. 
+I closed out the charrette with a live demo of what I had by that point.
+
+It was a disaster. I arrived at the presentation with my work laptop fully charged. 
+Drained so much over the next two hours that just before I was about to present, the laptop went into power
+saving mode and shut itself off. I scrambled to get it back up in time to present, but I still had to endure
+an awkward moment of technical difficulties at the beginning of my presentation. When the computer finally came 
+back up, the low battery caused it to run extremely slow. It was taking forever just to start the server back up,
+so I handed my laptop off to my friend, and started buying time with a technical explanation. Once everything 
+was back online, I had my friend demonstrate the features of the application while I took questions.
+
+I had expected fellow engineers to understand a work in progress, but I was wrong about that. Despite this, 
+I was still well received among many. I even received a few great feature suggestions.
+
+After the charrette, the VP in charge of A&F came by my desk. This would be my first personal interaction 
+with Steve. He said he was sad that he did not get to see my live demo. I offered to give him a demo then
+and there. He accepted. Steve was incredibly enthusiastic about the project after this. Once he left, I felt
+a tap on my shoulder, and turned around to see the gobsmacked expressions spread across the team's faces.
+
+They explained that they never do live demos because they have a tendency to blow up in the presenter's
+face every time, but I had just given one to more than 50 people, and then another personally to the VP.
+They told me they were impressed with how comfortable I was talking to someone who was so intimidating,
+and how well I did.
+Few things feel better than hearing something like that.
+
+This experience led me to overconfidence in the first few meetings with the PMT. There was still little
+interest in investing in The Portal. After the second meeting I figured out that there was fear surrounding
+the customizability. The entire reason we were building this dashboard was for convenience, centralization, 
+and standardization. Full customizability means no standardization. How does it help standardize things if
+every project dashboard is completely different. It was time to build the standardized immutable views I had
+planned.
+
+I created a left sidebar with tabs for multiple vies of the same dashboard. I called these "perspectives".
+I created 4 standard perspectives: Overview, People, Budget, and Search. These views would be the same 
+for every user. This not only provided standardization, but it also allowed new users to use the dashboard
+without having to create a layout first.
+
+????????
+I also created all the backend logic for widgets and created the endpoints for storing the layouts in the db
+
+This update was very well received

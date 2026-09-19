@@ -93,7 +93,7 @@
 		z-index: -1;
 		content: '';
 		pointer-events: none;
-		background-image: linear-gradient(rgba(255, 128, 0, 0.1), rgba(15, 0, 30, 0.8));
+		background-image: linear-gradient(rgba(255, 128, 0, 0.15), rgba(15, 0, 30, 0.9));
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
