@@ -29,6 +29,7 @@
 						>Resume</a
 					>
 				</li>
+				<li class="hover:text-green-700"><a href="/random/" target="_blank">Random</a></li>
 			</ul>
 		</nav>
 
