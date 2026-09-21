@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { projects } from './projects';
+	import { projects } from './projects.svelte.js';
 </script>
 
 {#snippet tag(tag: string)}
@@ -20,7 +20,7 @@
 	</li>
 {/snippet}
 
-<div class="grid-cols-2 grid gap-4">
+<div class="grid-cols-2 lg:grid-cols-3 grid gap-4">
 	{#each projects as project}
 		<article class="bg-current/5 border backdrop-blur-md border-current/20 p-4 pt-3.5 rounded-md">
 			<div class="flex justify-between">
@@ -45,6 +45,9 @@
 			</div>
 
 			<div class="mt-1">
+				{#if project.image}
+					<img src={project.image} alt="" class="mb-3 border border-current/20" />
+				{/if}
 				<p class="text-sm font-light mb-0 text-left">
 					{project.description}
 					{#if project.post}

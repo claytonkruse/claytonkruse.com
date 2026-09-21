@@ -60,11 +60,12 @@
 	<p>I am a senior Computer Science Major at Mizzou.</p>
 </hgroup>
 
-<div class="w-[700px] text-justify">
-	<h3 id="projects">Projects</h3>
-	<div class="m-auto max-w-fit">
-		<Projects />
-	</div>
+<h3 id="projects">Projects</h3>
+<div class="m-auto max-w-fit w-[1000px]">
+	<Projects />
+</div>
+
+<div class="w-[700px] text-justify m-auto">
 	<p class="mt-4 text-center text-sm text-gray-400">
 		Also see my <a href="/work-history/">Work History</a>.
 	</p>
