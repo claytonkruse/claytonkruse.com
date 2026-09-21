@@ -28,7 +28,12 @@ const sites = [
 	'https://minewolf.net/',
 	'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 	'https://www.youtube.com/watch?v=B_hQGYciGy0',
-	'https://www.youtube.com/watch?v=6Dip4alT63U'
+	'https://www.youtube.com/watch?v=6Dip4alT63U',
+
+	// people
+	'https://austinwarnock.tech/',
+	'https://alexheinking.com/',
+	'https://lrnewsom.github.io/'
 ];
 
 export const load: PageServerLoad = () => {
