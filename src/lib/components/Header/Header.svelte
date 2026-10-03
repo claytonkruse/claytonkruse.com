@@ -1,6 +1,8 @@
 <script lang="ts">
 	import LinkedIn from '~icons/akar-icons/linkedin-box-fill';
 	import GitHub from '~icons/akar-icons/github-fill';
+	import Rss from '~icons/akar-icons/rss';
+	import LinkOut from '~icons/akar-icons/link-out';
 </script>
 
 <header class="shadow-lg">
@@ -19,16 +21,19 @@
 			<ul class="flex gap-x-4 text-balance font-light text-center">
 				<li class="hover:text-green-700"><a href="/">Home</a></li>
 				<li class="hover:text-green-700"><a href="/writings/">Blog</a></li>
-				<li class="hover:text-green-700"><a href="/work-history/">Experience</a></li>
 				<li class="hover:text-green-700">
 					<a
 						target="_blank"
 						rel="noopener noreferrer"
 						href="https://docs.google.com/document/d/1AG8CuXm4aywkYa64X6YMXsYvHeYMeeVzwqDuenn1hZ8/edit?usp=sharing"
-						>Resume</a
+						>Resume<LinkOut class="ml-1 inline-block size-[0.7em] -translate-y-px" /></a
 					>
 				</li>
-				<li class="hover:text-green-700"><a href="/random/" target="_blank">Random</a></li>
+				<li class="hover:text-green-700">
+					<a href="/random/" target="_blank" rel="noopener noreferrer"
+						>Random<LinkOut class="ml-1 inline-block size-[0.7em] -translate-y-px" /></a
+					>
+				</li>
 			</ul>
 		</nav>
 
@@ -44,6 +49,10 @@
 					<a rel="nofollow noopener" target="_blank" href="/in/" aria-label="LinkedIn"
 						><LinkedIn class="translate-y-[3px]" /></a
 					>
+				</li>
+
+				<li class="hover:text-green-700">
+					<a href="/rss.xml" aria-label="RSS"><Rss class="translate-y-[3px]" /></a>
 				</li>
 			</ul>
 		</nav>

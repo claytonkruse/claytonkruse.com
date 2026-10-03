@@ -26,6 +26,10 @@
 	});
 </script>
 
+<svelte:head>
+	<link rel="alternate" type="application/rss+xml" title="Clayton Kruse" href="/rss.xml" />
+</svelte:head>
+
 <svelte:window onscroll={updateParallaxOffset} />
 
 <div id="parallax" class="h-full" style={`--parallax-offset: ${parallaxOffset}px;`}>

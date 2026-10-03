@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Rss from '~icons/akar-icons/rss';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -13,7 +14,13 @@
 	<meta name="keywords" content="articles, article, blog, posts, stories" />
 </svelte:head>
 
-<h1 class="mb-2 border-b-[1px] border-b-zinc-800 text-center text-3xl">Writings</h1>
+<div class="relative mb-2 border-b-[1px] border-b-zinc-800">
+	<h1 class="text-center text-3xl">Writings</h1>
+	<a href="/rss.xml" class="absolute right-0 bottom-1 inline-flex items-center gap-1 font-mono text-sm">
+		<Rss class="size-[0.9em]" />
+		RSS
+	</a>
+</div>
 
 <nav>
 	<ul>

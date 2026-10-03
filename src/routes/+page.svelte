@@ -67,7 +67,7 @@
 
 <div class="w-[700px] text-justify m-auto">
 	<p class="mt-4 text-center text-sm text-gray-400">
-		Also see my <a href="/work-history/">Work History</a>.
+		Also see my <a href="/writings/work-history/">Work History</a>.
 	</p>
 
 	<h3>Skills</h3>
