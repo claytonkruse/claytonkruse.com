@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 
 	import './style.css';
 
@@ -14,14 +14,18 @@
 	/** @type {Props} */
 	let { children } = $props();
 
+	const isHome = $derived(page.url.pathname === '/');
+
 	let parallaxOffset = $state(0);
 	const PARALLAX_RATE = 0.2;
 
 	function updateParallaxOffset() {
+		if (!isHome) return;
 		parallaxOffset = Math.round(window.scrollY * PARALLAX_RATE);
 	}
 
-	onMount(() => {
+	$effect(() => {
+		if (!isHome) return;
 		updateParallaxOffset();
 	});
 </script>
@@ -32,10 +36,17 @@
 
 <svelte:window onscroll={updateParallaxOffset} />
 
-<div id="parallax" class="h-full" style={`--parallax-offset: ${parallaxOffset}px;`}>
-	<div class="parallax-backdrop" aria-hidden="true">
-		<div class="parallax-backdrop__pattern"></div>
-	</div>
+<div
+	id="parallax"
+	class="h-full"
+	class:home={isHome}
+	style={isHome ? `--parallax-offset: ${parallaxOffset}px;` : undefined}
+>
+	{#if isHome}
+		<div class="parallax-backdrop" aria-hidden="true">
+			<div class="parallax-backdrop__pattern"></div>
+		</div>
+	{/if}
 
 	<div id="base">
 		<div id="content" class="flex h-max min-h-full flex-col justify-between">
@@ -91,7 +102,7 @@
 		}
 	}
 
-	#parallax::after {
+	#parallax.home::after {
 		position: fixed;
 		inset: 0;
 		z-index: -1;

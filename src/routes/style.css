@@ -11,7 +11,7 @@
 :root,
 body {
 	@apply min-h-full;
-	@apply bg-zinc-950 font-serif text-zinc-200;
+	@apply bg-taupe-950 font-serif text-orange-100;
 	/* @apply selection:bg-green-600 selection:bg-opacity-40 selection:text-zinc-200; */
 
 	font-size: 18px;
@@ -22,7 +22,7 @@ body {
 }
 
 a:not(header *) {
-	@apply text-cyan-700 visited:text-pink-700 hover:text-green-700 hover:underline;
+	@apply text-cyan-700 visited:text-pink-700 hover:text-cyan-700 hover:underline;
 }
 
 .prose {

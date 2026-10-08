@@ -7,7 +7,7 @@
 
 <header class="shadow-lg">
 	<div
-		class="bg-cyan-950/30 flex flex-wrap justify-center lowercase gap-x-4 border-b-2 border-green-500/30 px-2 font-mono backdrop-blur-xs"
+		class="bg-cyan-950/30 flex flex-wrap justify-center lowercase gap-x-4 border-b border-cyan-300 px-2 font-mono backdrop-blur-xs"
 	>
 		<nav>
 			<ul class="flex gap-x-4 text-balance text-center">
@@ -19,9 +19,9 @@
 
 		<nav>
 			<ul class="flex gap-x-4 text-balance font-light text-center">
-				<li class="hover:text-green-700"><a href="/">Home</a></li>
-				<li class="hover:text-green-700"><a href="/writings/">Blog</a></li>
-				<li class="hover:text-green-700">
+				<li class="hover:text-cyan-700"><a href="/">Home</a></li>
+				<li class="hover:text-cyan-700"><a href="/writings/">Blog</a></li>
+				<li class="hover:text-cyan-700">
 					<a
 						target="_blank"
 						rel="noopener noreferrer"
@@ -29,7 +29,7 @@
 						>Resume<LinkOut class="ml-1 inline-block size-[0.7em] -translate-y-px" /></a
 					>
 				</li>
-				<li class="hover:text-green-700">
+				<li class="hover:text-cyan-700">
 					<a href="/random/" target="_blank" rel="noopener noreferrer"
 						>Random<LinkOut class="ml-1 inline-block size-[0.7em] -translate-y-px" /></a
 					>
@@ -39,19 +39,19 @@
 
 		<nav class="right-5 h-full xl:absolute">
 			<ul class="flex gap-2">
-				<li class="hover:text-green-700">
+				<li class="hover:text-cyan-700">
 					<a rel="nofollow noopener" target="_blank" href="/github/" aria-label="GitHub"
 						><GitHub class="translate-y-[3px]" /></a
 					>
 				</li>
 
-				<li class="hover:text-green-700">
+				<li class="hover:text-cyan-700">
 					<a rel="nofollow noopener" target="_blank" href="/in/" aria-label="LinkedIn"
 						><LinkedIn class="translate-y-[3px]" /></a
 					>
 				</li>
 
-				<li class="hover:text-green-700">
+				<li class="hover:text-cyan-700">
 					<a href="/rss.xml" aria-label="RSS"><Rss class="translate-y-[3px]" /></a>
 				</li>
 			</ul>
