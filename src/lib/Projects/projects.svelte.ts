@@ -1,5 +1,5 @@
 import ih8webp from '$lib/assets/ihatewebp.png';
-import burnsmcdav from '$lib/assets/burnsmcdav.jpg';
+import burnsmcdav from '$lib/assets/337KB_compress_burnsmcdav.webp';
 
 export const projects = [
 	{

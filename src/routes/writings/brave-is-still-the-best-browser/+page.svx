@@ -1,0 +1,21 @@
+---
+title: Brave is Still the Best Browser
+date: October 11th, 2026
+unlisted: true
+---
+
+Recently I have been giving [Helium](https://helium.computer/) a try.
+I really like the lack of bloat compared to Brave. 
+[I like that it comes with uBlock Origin.](/writings/every-browser-should-come-with-adblock/)
+I would use it as my main browser except for one issue:
+Helium lacks sync.
+
+I tried to live without it. I set up VaultWarden. I imported my extensions from Brave. The experience was good enougth,
+until I got a new computer.
+
+[I recently got a Mac.](#)
+
+
+
+- brave has sync
+- you can install ublock via going to manifestv2 extensions in settings

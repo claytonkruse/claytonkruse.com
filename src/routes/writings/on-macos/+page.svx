@@ -1,0 +1,16 @@
+---
+title: On MacOS
+date: October 12th, 2026
+unlisted: true
+---
+
+- External mice are completely unusable by default
+    - Mouse acceleration is bad
+    - Scroll acceleration is worse
+        - Cannot be properly disabled without 3rd party software
+- Why can't I minimize a window after maximizing it?
+    - The button is still there, but it is disabled.
+    - I have to un-maximize, and then minmize.
+
+- Applications are noticibly faster to start than on Windows
+    - Linux?

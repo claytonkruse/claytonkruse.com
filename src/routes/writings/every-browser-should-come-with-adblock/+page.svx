@@ -1,0 +1,10 @@
+---
+title: Every Browser Should Come with Adblock
+unlisted: true
+---
+
+In my estimation, the only possible reason a browser would not come with an adblocker, is because that browser is owned by a party which has interest in adspace.
+Do not tell me it's because some may want to choose another adblocker: in this case the browser should have the user choose one during setup.
+
+- uBlock is good
+- Brave Shields is good
