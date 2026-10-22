@@ -1,5 +1,6 @@
 import ih8webp from '$lib/assets/ihatewebp.png';
 import burnsmcdav from '$lib/assets/337KB_compress_burnsmcdav.webp';
+import zenTetris from '$lib/assets/zen-tetris.webp';
 
 export const projects = [
 	{
@@ -49,6 +50,15 @@ export const projects = [
 			'sso',
 			'linux'
 		]
+	},
+	{
+		name: 'Zen Tetris',
+		link: '/zen-tetris/',
+		source: 'https://github.com/claytonkruse/claytonkruse.com/tree/master/src/routes/zen-tetris',
+		description:
+			"Tetris, but you can't lose. When the stack reaches the top, the board just scrolls down and you keep playing.",
+		tags: ['svelte', 'javascript'],
+		image: zenTetris
 	},
 	{
 		name: 'Password Generator',
