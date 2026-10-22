@@ -19,7 +19,7 @@ const sources = import.meta.glob('/src/routes/writings/*/+page.svx', {
 }) as Record<string, () => Promise<string>>;
 
 export function parsePostDate(date: string) {
-	return new Date(date.replace(/(\d+)(st|nd|rd|th)\b/g, '$1'));
+	return new Date(date?.replace(/(\d+)(st|nd|rd|th)\b/g, '$1'));
 }
 
 function excerptFromSource(source: string) {

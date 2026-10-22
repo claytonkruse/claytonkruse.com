@@ -61,7 +61,7 @@
 </hgroup>
 
 <h3 id="projects">Projects</h3>
-<div class="m-auto max-w-fit w-[1000px]">
+<div class="m-auto max-w-fit w-[1250px]">
 	<Projects />
 </div>
 
