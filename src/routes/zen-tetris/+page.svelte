@@ -19,7 +19,7 @@
 	const MAX_HISTORY = 2000;
 	// Lengths of the hard drop streak and line clear flash.
 	const TRAIL_MS = 220;
-	const CLEAR_MS = 380;
+	const CLEAR_MS = 550;
 	// Delay between the AI's moves, so you can watch it think.
 	const AI_MS = 120;
 
@@ -28,7 +28,26 @@
 	// Short-lived visual effects. Their `y` values are world rows, kept in step with scrolling.
 	type Effect =
 		| { kind: 'trail'; start: number; x: number; y1: number; y2: number; color: string }
-		| { kind: 'clear'; start: number; y: number; cells: Cell[] };
+		| {
+				kind: 'clear';
+				start: number;
+				y: number;
+				// Columns the last piece filled in this row; the blast spreads out from here.
+				from: number;
+				to: number;
+				shards: Shard[];
+		  };
+	// A fragment of a cleared block. Position is in pixels relative to the row's top-left corner;
+	// velocity is in pixels per second.
+	type Shard = {
+		x: number;
+		y: number;
+		vx: number;
+		vy: number;
+		size: number;
+		spin: number;
+		color: string;
+	};
 
 	const SHAPES: Record<string, { shape: number[][]; color: string }> = {
 		I: { shape: [[1, 1, 1, 1]], color: '#00f0ff' },
@@ -102,6 +121,8 @@
 	let canvas: HTMLCanvasElement | undefined = $state();
 	let preview: HTMLCanvasElement | undefined = $state();
 	let minimap: HTMLCanvasElement | undefined = $state();
+	// Covers the whole window so line clear beams can shoot past the edges of the board.
+	let overlay: HTMLCanvasElement | undefined = $state();
 
 	function emptyRow(): Cell[] {
 		return Array(COLS).fill(null);
@@ -157,12 +178,14 @@
 
 	function lock() {
 		const placed = [...world];
+		const placedCols = new Map<number, number[]>();
 		piece.shape.forEach((row, r) =>
 			row.forEach((v, c) => {
 				const y = piece.y + r;
 				if (!v || y < 0) return;
 				placed[y] = [...placed[y]];
 				placed[y][piece.x + c] = piece.color;
+				placedCols.set(y, [...(placedCols.get(y) ?? []), piece.x + c]);
 			})
 		);
 		world = placed;
@@ -174,7 +197,19 @@
 		if (cleared) {
 			effects = [
 				...effects,
-				...fullRows.map((y) => ({ kind: 'clear' as const, start: now, y, cells: world[y] }))
+				...fullRows.map((y) => {
+					const cols = placedCols.get(y) ?? [0, COLS - 1];
+					const from = Math.min(...cols);
+					const to = Math.max(...cols);
+					return {
+						kind: 'clear' as const,
+						start: now,
+						y,
+						from,
+						to,
+						shards: shatterRow(world[y], ((from + to + 1) / 2) * CELL)
+					};
+				})
 			];
 			// Each surviving row starts where it was and slides down past the cleared lines.
 			const keptRows = world.flatMap((_, y) => (fullRows.includes(y) ? [] : [y]));
@@ -206,6 +241,26 @@
 		piece.y = Math.max(0, Math.min(Math.floor(cameraY / CELL), -view));
 		pieceId++;
 		next = randomPiece();
+	}
+
+	// Blow a full row into shards, each the color of the block it came from, that burst
+	// outward from `originX` (in pixels).
+	function shatterRow(cells: Cell[], originX: number): Shard[] {
+		const shards: Shard[] = [];
+		for (let x = 0; x < COLS; x++)
+			for (let i = 0; i < 6; i++) {
+				const cx = x * CELL + Math.random() * CELL;
+				shards.push({
+					x: cx,
+					y: Math.random() * CELL,
+					vx: (cx - originX) * 2.5 + (Math.random() - 0.5) * 500,
+					vy: -Math.random() * 450 + 100,
+					size: 3 + Math.random() * 6,
+					spin: (Math.random() - 0.5) * 20,
+					color: cells[x] ?? '#ffffff'
+				});
+			}
+		return shards;
 	}
 
 	function step() {
@@ -427,7 +482,15 @@
 	$effect(() => {
 		const ctx = canvas?.getContext('2d');
 		if (!ctx) return;
+		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.clearRect(0, 0, COLS * CELL, ROWS * CELL);
+
+		// A quick shake right as lines are obliterated; harder for more lines at once.
+		const blasts = effects.filter((e) => e.kind === 'clear' && clock - e.start < CLEAR_MS * 0.3);
+		if (blasts.length) {
+			const strength = 3 + 2 * blasts.length;
+			ctx.translate((Math.random() - 0.5) * strength, (Math.random() - 0.5) * strength);
+		}
 
 		ctx.strokeStyle = 'rgba(255, 237, 213, 0.05)';
 		for (let x = 0; x <= COLS; x++) ctx.strokeRect(x * CELL, 0, 0, ROWS * CELL);
@@ -452,18 +515,38 @@
 				ctx.fillRect(e.x * CELL + 4, top, CELL - 8, bottom - top);
 				ctx.globalAlpha = 1;
 			} else {
-				// The cleared blocks flash white, shrink, and fade while a white bar collapses inward.
+				// Obliterate the row: the blocks flash white and swell, then burst into glowing shards,
+				// in the colors of the blocks they came from, that fly apart and fall.
 				const top = e.y * CELL - cameraY;
-				const size = (CELL - 2) * (1 - t);
-				ctx.globalAlpha = 1 - t;
-				e.cells.forEach((cell, x) => {
-					if (!cell) return;
-					ctx.fillStyle = t < 0.25 ? '#ffffff' : cell;
-					ctx.fillRect(x * CELL + CELL / 2 - size / 2, top + CELL / 2 - size / 2, size, size);
-				});
-				const width = COLS * CELL * (1 - t);
-				ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-				ctx.fillRect((COLS * CELL - width) / 2, top + CELL / 2 - 2, width, 4);
+				const secs = (t * CLEAR_MS) / 1000;
+				ctx.fillStyle = '#ffffff';
+				ctx.shadowColor = '#ffffff';
+
+				if (t < 0.18) {
+					const swell = 1 + t;
+					const size = (CELL - 2) * swell;
+					ctx.shadowBlur = 20;
+					for (let x = 0; x < COLS; x++)
+						ctx.fillRect(x * CELL + CELL / 2 - size / 2, top + CELL / 2 - size / 2, size, size);
+				}
+
+				// The beams are drawn on the full-page overlay below, so they can leave the board.
+				ctx.shadowBlur = 8;
+				ctx.globalAlpha = Math.min(1, 1.6 * (1 - t));
+				for (const shard of e.shards) {
+					const size = shard.size * (1 - 0.6 * t);
+					ctx.save();
+					ctx.translate(
+						shard.x + shard.vx * secs,
+						top + shard.y + shard.vy * secs + 0.5 * 1400 * secs * secs
+					);
+					ctx.rotate(shard.spin * secs);
+					ctx.fillStyle = shard.color;
+					ctx.shadowColor = shard.color;
+					ctx.fillRect(-size / 2, -size / 2, size, size);
+					ctx.restore();
+				}
+				ctx.shadowBlur = 0;
 				ctx.globalAlpha = 1;
 			}
 		}
@@ -480,6 +563,58 @@
 		piece.shape.forEach((row, r) =>
 			row.forEach((v, c) => v && drawCell(ctx, piece.x + c, piece.y + r, piece.color, cameraY))
 		);
+	});
+
+	$effect(() => {
+		const ctx = overlay?.getContext('2d');
+		if (!ctx || !overlay || !canvas) return;
+		const dpr = window.devicePixelRatio || 1;
+		const width = Math.round(innerWidth * dpr);
+		const height = Math.round(innerHeight * dpr);
+		if (overlay.width !== width || overlay.height !== height) {
+			overlay.width = width;
+			overlay.height = height;
+		}
+		ctx.setTransform(1, 0, 0, 1, 0, 0);
+		ctx.clearRect(0, 0, width, height);
+		ctx.scale(dpr, dpr);
+
+		const board = canvas.getBoundingClientRect();
+		for (const e of effects) {
+			if (e.kind !== 'clear') continue;
+			const t = Math.min(1, (clock - e.start) / CLEAR_MS);
+
+			// Two beams burst out from where the last piece landed: one races sideways along the
+			// row, the other shoots up and down the columns that piece filled. Both carry on well
+			// past the edges of the board.
+			const spread = 1 - (1 - t) ** 3;
+			const originX = board.left + ((e.from + e.to + 1) / 2) * CELL;
+			const midY = board.top + e.y * CELL - cameraY + CELL / 2;
+			ctx.shadowColor = '#ffffff';
+			ctx.shadowBlur = 16;
+
+			const beamH = CELL * (1 - 0.8 * t);
+			const reachX = Math.max(innerWidth, COLS * CELL) * 0.75 * spread;
+			const across = ctx.createLinearGradient(originX - reachX, 0, originX + reachX, 0);
+			across.addColorStop(0, 'rgba(255, 255, 255, 0)');
+			across.addColorStop(0.5, '#ffffff');
+			across.addColorStop(1, 'rgba(255, 255, 255, 0)');
+			ctx.globalAlpha = 0.9 * (1 - t);
+			ctx.fillStyle = across;
+			ctx.fillRect(originX - reachX, midY - beamH / 2, reachX * 2, beamH);
+
+			const beamW = (e.to - e.from + 1) * CELL * (1 - 0.6 * t);
+			const reachY = Math.max(innerHeight, ROWS * CELL) * 0.75 * spread;
+			const along = ctx.createLinearGradient(0, midY - reachY, 0, midY + reachY);
+			along.addColorStop(0, 'rgba(255, 255, 255, 0)');
+			along.addColorStop(0.5, '#ffffff');
+			along.addColorStop(1, 'rgba(255, 255, 255, 0)');
+			ctx.globalAlpha = 0.7 * (1 - t);
+			ctx.fillStyle = along;
+			ctx.fillRect(originX - beamW / 2, midY - reachY, beamW, reachY * 2);
+		}
+		ctx.shadowBlur = 0;
+		ctx.globalAlpha = 1;
 	});
 
 	$effect(() => {
@@ -531,6 +666,8 @@
 </svelte:head>
 
 <svelte:window {onkeydown} />
+
+<canvas bind:this={overlay} class="pointer-events-none fixed inset-0 z-50 h-full w-full"></canvas>
 
 <hgroup class="mb-6 text-center">
 	<h1 class="text-4xl tracking-wider">Zen Tetris</h1>
