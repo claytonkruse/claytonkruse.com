@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { flip } from 'svelte/animate';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import * as sound from './sounds';
 
 	const COLS = 10;
@@ -121,10 +120,11 @@
 	let combo = -1;
 	// Whether the last line clear was a tetris or T-spin, which earns the next one a bonus.
 	let backToBack = false;
-	// Each part of the score recently earned, shown next to the score for a moment.
-	type Award = { id: number; points: number; name: string };
-	let awards: Award[] = $state([]);
-	let awardId = 0;
+	// Each part of the score the latest line clear earned, shown on the board for a moment.
+	type Callout = { id: number; awards: { points: number; name: string }[] };
+	// Holds at most one callout; a list so each one fades out on its own, undisturbed by the next.
+	let callouts: Callout[] = $state([]);
+	let calloutId = 0;
 	// T-spins only count when rotating was the last thing that moved the piece.
 	let lastMoveRotated = false;
 	let paused = $state(false);
@@ -301,12 +301,10 @@
 			if (combo > 0) earned.push({ points: 50 * combo, name: `Combo ×${combo}` });
 			sound.clear(cleared, combo);
 
-			for (const award of earned) {
-				score += award.points;
-				const id = awardId++;
-				awards = [{ id, ...award }, ...awards];
-				setTimeout(() => (awards = awards.filter((a) => a.id !== id)), AWARD_MS);
-			}
+			for (const award of earned) score += award.points;
+			const id = calloutId++;
+			callouts = [{ id, awards: earned }];
+			setTimeout(() => (callouts = callouts.filter((c) => c.id !== id)), AWARD_MS);
 		} else combo = -1;
 
 		// Zen mode: keep the top of the stack MAX_STACK rows above the bottom of the screen.
@@ -398,7 +396,7 @@
 		next = randomPiece();
 		lines = 0;
 		score = 0;
-		awards = [];
+		callouts = [];
 		combo = -1;
 		backToBack = false;
 		lastMoveRotated = false;
@@ -767,23 +765,27 @@
 
 	<div class="relative border border-current/20 bg-black/40">
 		<canvas bind:this={canvas} width={COLS * CELL} height={ROWS * CELL} class="block"></canvas>
-		<!-- What each part of the score was earned for, in the middle of the board. -->
-		<ul
-			class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1 text-[#ffc94d] [text-shadow:0_0_8px_rgb(0_0_0)]"
+		<!-- What each part of the score was earned for, in the middle of the board. Every callout
+			 sits in the same grid cell, so one fading out never shifts the next one. -->
+		<div
+			class="pointer-events-none absolute inset-0 grid place-items-center text-[#ffc94d] [text-shadow:0_0_8px_rgb(0_0_0)]"
 			aria-live="polite"
 		>
-			{#each awards as award (award.id)}
-				<li
-					class="tracking-wide"
-					animate:flip={{ duration: 200 }}
+			{#each callouts as callout (callout.id)}
+				<ul
+					class="col-start-1 row-start-1 flex flex-col items-center gap-1 tracking-wide"
 					in:fly={{ y: 8, duration: 250 }}
-					out:fade={{ duration: 500 }}
+					out:fly={{ y: -16, duration: 500 }}
 				>
-					<span class="font-mono">+{award.points.toLocaleString()}</span>
-					{award.name}
-				</li>
+					{#each callout.awards as award, i (i)}
+						<li>
+							<span class="font-mono">+{award.points.toLocaleString()}</span>
+							{award.name}
+						</li>
+					{/each}
+				</ul>
 			{/each}
-		</ul>
+		</div>
 		{#if paused}
 			<div
 				class="absolute inset-0 flex items-center justify-center bg-black/60 text-2xl tracking-widest"

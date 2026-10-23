@@ -32,6 +32,8 @@ const sites = [
 	'https://www.youtube.com/watch?v=B_hQGYciGy0',
 	'https://www.youtube.com/watch?v=6Dip4alT63U',
 	'https://ha.mr/',
+	'https://claytonkruse.com/zen-tetris/',
+	'https://www.hilarylayne.com/',
 
 	// people
 	'https://austinwarnock.tech/',

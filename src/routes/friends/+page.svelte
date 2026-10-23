@@ -1,9 +1,6 @@
 <svelte:head>
 	<title>Friends - Clayton Kruse</title>
-	<meta
-		name="description"
-		content="These are some of my friends. Check them out."
-	/>
+	<meta name="description" content="These are some of my friends. Check them out." />
 </svelte:head>
 
 <h1 class="text-4xl">My Friends</h1>

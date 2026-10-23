@@ -4,7 +4,6 @@ import { links } from '../../params/link';
 
 export const load = (async ({ params }) => {
 	const { link: param }: { link: string } = params;
-	for (const link of links)
-		if (link.names.includes(param)) redirect(301, link.url);
+	for (const link of links) if (link.names.includes(param)) redirect(301, link.url);
 	return false;
 }) satisfies PageLoad;

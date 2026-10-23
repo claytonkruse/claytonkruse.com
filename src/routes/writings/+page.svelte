@@ -16,7 +16,10 @@
 
 <div class="relative mb-2 border-b-[1px] border-b-zinc-800">
 	<h1 class="text-center text-3xl">Writings</h1>
-	<a href="/rss.xml" class="absolute right-0 bottom-1 inline-flex items-center gap-1 font-mono text-sm">
+	<a
+		href="/rss.xml"
+		class="absolute right-0 bottom-1 inline-flex items-center gap-1 font-mono text-sm"
+	>
 		<Rss class="size-[0.9em]" />
 		RSS
 	</a>
