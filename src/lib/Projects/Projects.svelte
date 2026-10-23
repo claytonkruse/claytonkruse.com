@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { projects } from './projects.svelte.js';
+	import ProjectVideo from './ProjectVideo.svelte';
+	import ProjectSlideshow from './ProjectSlideshow.svelte';
 
 	const tagSites: Record<string, string> = {
 		svelte: 'https://svelte.dev/',
@@ -77,7 +79,11 @@
 			</div>
 
 			<div class="mt-3">
-				{#if project.image}
+				{#if project.slides}
+					<ProjectSlideshow slides={project.slides} />
+				{:else if project.video}
+					<ProjectVideo video={project.video} poster={project.image} />
+				{:else if project.image}
 					<img src={project.image} alt="" class="mb-3 border border-current/20" />
 				{/if}
 				<p class="text-sm font-light mb-0 text-left">

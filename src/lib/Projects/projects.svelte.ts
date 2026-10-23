@@ -1,8 +1,50 @@
-import ih8webp from '$lib/assets/ihatewebp.png';
-import burnsmcdav from '$lib/assets/337KB_compress_burnsmcdav.webp';
-import zenTetris from '$lib/assets/zen-tetris.webp';
+import imageCompressorPoster from '$lib/assets/image-compressor-poster.webp';
+import imageCompressorWebm from '$lib/assets/image-compressor.webm';
+import imageCompressorMp4 from '$lib/assets/image-compressor.mp4';
+import imageConverterPoster from '$lib/assets/image-converter-poster.webp';
+import imageConverterWebm from '$lib/assets/image-converter.webm';
+import imageConverterMp4 from '$lib/assets/image-converter.mp4';
+import imageTransformerPoster from '$lib/assets/image-transformer-poster.webp';
+import imageTransformerWebm from '$lib/assets/image-transformer.webm';
+import imageTransformerMp4 from '$lib/assets/image-transformer.mp4';
+import ih8webpPoster from '$lib/assets/ihatewebp-poster.webp';
+import ih8webpWebm from '$lib/assets/ihatewebp.webm';
+import ih8webpMp4 from '$lib/assets/ihatewebp.mp4';
+import minewolfPoster from '$lib/assets/minewolf-poster.webp';
+import minewolfWebm from '$lib/assets/minewolf.webm';
+import minewolfMp4 from '$lib/assets/minewolf.mp4';
+import zenTetrisPoster from '$lib/assets/zen-tetris-poster.webp';
+import zenTetrisWebm from '$lib/assets/zen-tetris.webm';
+import zenTetrisMp4 from '$lib/assets/zen-tetris.mp4';
+import passwordGenPoster from '$lib/assets/password-generator-poster.webp';
+import passwordGenWebm from '$lib/assets/password-generator.webm';
+import passwordGenMp4 from '$lib/assets/password-generator.mp4';
 
-export const projects = [
+// Numbered so the slideshow plays in filename order.
+const burnsmcdavSlides = Object.entries(
+	import.meta.glob<string>('$lib/assets/burnsmcdav/*.webp', { eager: true, import: 'default' })
+)
+	.sort(([a], [b]) => a.localeCompare(b))
+	.map(([, url]) => url);
+
+export type ProjectVideo = { webm?: string; mp4?: string };
+
+export type Project = {
+	name: string;
+	post?: string;
+	link?: string;
+	source?: string;
+	description: string;
+	tags: string[];
+	/** Shown on its own, or as the poster while `video` loads. Ideally the video's first frame. */
+	image?: string;
+	/** Short, silent, looping clip of the project in use. */
+	video?: ProjectVideo;
+	/** Images shown as a fading slideshow, for projects that can't be recorded. */
+	slides?: string[];
+};
+
+export const projects: Project[] = [
 	{
 		name: 'A&F Project Portal',
 		// post: '/writings/burnsmcd-anf-project-portal/',
@@ -20,7 +62,7 @@ export const projects = [
 			'nosql',
 			'docker'
 		],
-		image: burnsmcdav
+		slides: burnsmcdavSlides
 	},
 	{
 		name: 'iHATEWebP',
@@ -30,7 +72,8 @@ export const projects = [
 		description:
 			'Initially a simple tool to convert WebP images to PNG, which later grew into a full suite of convenient tools for the web.',
 		tags: ['svelte', 'tailwindcss'],
-		image: ih8webp
+		image: ih8webpPoster,
+		video: { webm: ih8webpWebm, mp4: ih8webpMp4 }
 	},
 	{
 		name: 'MINEWOLF',
@@ -49,7 +92,9 @@ export const projects = [
 			'drizzle',
 			'sso',
 			'linux'
-		]
+		],
+		image: minewolfPoster,
+		video: { webm: minewolfWebm, mp4: minewolfMp4 }
 	},
 	{
 		name: 'Zen Tetris',
@@ -58,7 +103,8 @@ export const projects = [
 		description:
 			"Tetris, but you can't lose. When the stack reaches the top, the board just scrolls down and you keep playing.",
 		tags: ['svelte', 'javascript'],
-		image: zenTetris
+		image: zenTetrisPoster,
+		video: { webm: zenTetrisWebm, mp4: zenTetrisMp4 }
 	},
 	{
 		name: 'Password Generator',
@@ -67,7 +113,9 @@ export const projects = [
 		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/password-generator',
 		description:
 			'A fun and memorable password generator with many options, bells and whistles. A new addition to iHATEWebP.',
-		tags: ['svelte', 'shadcn-svelte']
+		tags: ['svelte', 'shadcn-svelte'],
+		image: passwordGenPoster,
+		video: { webm: passwordGenWebm, mp4: passwordGenMp4 }
 	},
 	{
 		name: 'Image Transformer',
@@ -76,15 +124,19 @@ export const projects = [
 		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes',
 		description:
 			'A set of simple tools to compress, transform, and edit images. This is now part of iHATEWebP.',
-		tags: ['svelte', 'javascript']
+		tags: ['svelte', 'javascript'],
+		image: imageTransformerPoster,
+		video: { webm: imageTransformerWebm, mp4: imageTransformerMp4 }
 	},
 	{
 		name: 'Image Compressor',
 		// post: '/writings/ihatewebp/',
-		link: 'https://ihatewebp.com/convert/',
+		link: 'https://ihatewebp.com/compress/',
 		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/compress',
 		description: 'A simple tool to compress images. This is now part of iHATEWebP.',
-		tags: ['svelte', 'javascript']
+		tags: ['svelte', 'javascript'],
+		image: imageCompressorPoster,
+		video: { webm: imageCompressorWebm, mp4: imageCompressorMp4 }
 	},
 	{
 		name: 'Image Converter',
@@ -92,6 +144,8 @@ export const projects = [
 		link: 'https://ihatewebp.com/convert/',
 		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/convert',
 		description: 'A simple tool to convert WebP images to PNG. This is now part of iHATEWebP.',
-		tags: ['svelte', 'javascript']
+		tags: ['svelte', 'javascript'],
+		image: imageConverterPoster,
+		video: { webm: imageConverterWebm, mp4: imageConverterMp4 }
 	}
 ];
