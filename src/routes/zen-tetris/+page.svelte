@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { flip } from 'svelte/animate';
+	import { fade, fly } from 'svelte/transition';
+	import * as sound from './sounds';
+
 	const COLS = 10;
 	const ROWS = 20;
 	const CELL = 28;
@@ -20,11 +24,20 @@
 	// Lengths of the hard drop streak and line clear flash.
 	const TRAIL_MS = 220;
 	const CLEAR_MS = 550;
+	// Points for clearing 0 to 4 lines at once, plain or with a T-spin, and the bonus for
+	// clearing the whole board.
+	const LINE_POINTS = [0, 100, 300, 500, 800];
+	const TSPIN_POINTS = [0, 800, 1200, 1600];
+	const MINI_TSPIN_POINTS = [0, 200, 400];
+	const PERFECT_CLEAR_POINTS = [0, 800, 1200, 1800, 2000];
+	const CLEAR_NAMES = ['', 'Single', 'Double', 'Triple', 'Tetris'];
+	// How long each "+points name" callout stays next to the score.
+	const AWARD_MS = 1800;
 	// Delay between the AI's moves, so you can watch it think.
 	const AI_MS = 120;
 
 	type Cell = string | null;
-	type Piece = { shape: number[][]; color: string; x: number; y: number };
+	type Piece = { type: string; shape: number[][]; color: string; x: number; y: number };
 	// Short-lived visual effects. Their `y` values are world rows, kept in step with scrolling.
 	type Effect =
 		| { kind: 'trail'; start: number; x: number; y1: number; y2: number; color: string }
@@ -102,6 +115,18 @@
 	let piece: Piece = $state(randomPiece());
 	let next: Piece = $state(randomPiece());
 	let lines = $state(0);
+	// Scored by the Tetris Guideline at a fixed level 1, since zen mode never speeds up.
+	let score = $state(0);
+	// Consecutive locks that cleared lines, minus one; -1 means no combo is running.
+	let combo = -1;
+	// Whether the last line clear was a tetris or T-spin, which earns the next one a bonus.
+	let backToBack = false;
+	// Each part of the score recently earned, shown next to the score for a moment.
+	type Award = { id: number; points: number; name: string };
+	let awards: Award[] = $state([]);
+	let awardId = 0;
+	// T-spins only count when rotating was the last thing that moved the piece.
+	let lastMoveRotated = false;
 	let paused = $state(false);
 	const scrolled = $derived(world.length - ROWS);
 	// How far down the world the screen is, in pixels. It eases toward 0 (or toward a piece
@@ -114,6 +139,7 @@
 	let aiEnabled = $state(false);
 	// Off by default: the AI lines the piece up, then waits for it to fall on its own.
 	let aiCanDrop = $state(false);
+	let muted = $state(false);
 	// Bumped every time a new piece spawns, so the AI knows when to plan again.
 	let pieceId = 0;
 	let plan: { id: number; rotations: number; x: number } | null = null;
@@ -134,8 +160,9 @@
 
 	function randomPiece(): Piece {
 		if (bag.length === 0) bag = Object.keys(SHAPES).sort(() => Math.random() - 0.5);
-		const { shape, color } = SHAPES[bag.pop()!];
-		return { shape, color, x: Math.floor((COLS - shape[0].length) / 2), y: 0 };
+		const type = bag.pop()!;
+		const { shape, color } = SHAPES[type];
+		return { type, shape, color, x: Math.floor((COLS - shape[0].length) / 2), y: 0 };
 	}
 
 	function collides(shape: number[][], x: number, y: number): boolean {
@@ -162,21 +189,55 @@
 		if (collides(piece.shape, piece.x + dx, piece.y + dy)) return false;
 		piece.x += dx;
 		piece.y += dy;
+		lastMoveRotated = false;
 		return true;
 	}
 
-	function tryRotate(dir: 1 | -1) {
+	function tryRotate(dir: 1 | -1): boolean {
 		const shape = rotate(piece.shape, dir);
 		for (const kick of [0, -1, 1, -2, 2]) {
 			if (!collides(shape, piece.x + kick, piece.y)) {
 				piece.shape = shape;
 				piece.x += kick;
-				return;
+				lastMoveRotated = true;
+				return true;
 			}
 		}
+		return false;
+	}
+
+	// Whether the piece is a T that just rotated into a slot, by the three-corner rule: at least
+	// three of the four cells diagonal to its center are filled. With both corners on the side
+	// it points toward filled it's a full T-spin; otherwise it's a mini.
+	function tSpin(): 'full' | 'mini' | null {
+		if (piece.type !== 'T' || !lastMoveRotated) return null;
+		const { shape } = piece;
+		const has = (r: number, c: number) => !!shape[r]?.[c];
+		const sides = [
+			[-1, 0],
+			[1, 0],
+			[0, -1],
+			[0, 1]
+		];
+		// The center is the block touching three others, and it points away from the side that
+		// has no block.
+		const isCenter = (r: number, c: number) =>
+			sides.filter(([dr, dc]) => has(r + dr, c + dc)).length === 3;
+		const r = shape.findIndex((row, r) => row.some((_, c) => isCenter(r, c)));
+		const c = shape[r].findIndex((_, c) => isCenter(r, c));
+		const [fr, fc] = sides.find(([dr, dc]) => !has(r - dr, c - dc))!;
+		const filled = (dr: number, dc: number) =>
+			collides([[1]], piece.x + c + dc, piece.y + r + dr) ? 1 : 0;
+		const front = filled(fr + fc, fc + fr) + filled(fr - fc, fc - fr);
+		const back = filled(-fr + fc, -fc + fr) + filled(-fr - fc, -fc - fr);
+		if (front === 2 && back >= 1) return 'full';
+		if (back === 2 && front === 1) return 'mini';
+		return null;
 	}
 
 	function lock() {
+		const spin = tSpin();
+		sound.lock(piece.x + piece.shape[0].length / 2);
 		const placed = [...world];
 		const placedCols = new Map<number, number[]>();
 		piece.shape.forEach((row, r) =>
@@ -219,6 +280,34 @@
 			];
 			world = [...Array.from({ length: cleared }, emptyRow), ...keptRows.map((y) => world[y])];
 		}
+
+		if (cleared) {
+			// There's no such thing as a mini T-spin triple, so count one as a full T-spin.
+			const kind = spin === 'mini' && cleared > 2 ? 'full' : spin;
+			const difficult = cleared === 4 || !!kind;
+			const base = (
+				kind === 'full' ? TSPIN_POINTS : kind === 'mini' ? MINI_TSPIN_POINTS : LINE_POINTS
+			)[cleared];
+			const prefix = kind === 'full' ? 'T-Spin ' : kind === 'mini' ? 'Mini T-Spin ' : '';
+			const earned = [{ points: base, name: prefix + CLEAR_NAMES[cleared] }];
+			if (difficult && backToBack) earned.push({ points: base / 2, name: 'Back-to-Back' });
+			if (world.every((row) => row.every((cell) => !cell)))
+				earned.push({
+					points: difficult && backToBack && cleared === 4 ? 3200 : PERFECT_CLEAR_POINTS[cleared],
+					name: 'Perfect Clear'
+				});
+			backToBack = difficult;
+			combo++;
+			if (combo > 0) earned.push({ points: 50 * combo, name: `Combo ×${combo}` });
+			sound.clear(cleared, combo);
+
+			for (const award of earned) {
+				score += award.points;
+				const id = awardId++;
+				awards = [{ id, ...award }, ...awards];
+				setTimeout(() => (awards = awards.filter((a) => a.id !== id)), AWARD_MS);
+			}
+		} else combo = -1;
 
 		// Zen mode: keep the top of the stack MAX_STACK rows above the bottom of the screen.
 		// A growing stack scrolls the board down instead of topping out, and after lines clear
@@ -298,6 +387,7 @@
 			});
 		}
 		effects = [...effects, ...trails];
+		sound.hardDrop();
 		lock();
 	}
 
@@ -307,6 +397,11 @@
 		piece = randomPiece();
 		next = randomPiece();
 		lines = 0;
+		score = 0;
+		awards = [];
+		combo = -1;
+		backToBack = false;
+		lastMoveRotated = false;
 		cameraY = 0;
 		rowLift = Array(ROWS).fill(0);
 		effects = [];
@@ -375,10 +470,11 @@
 		if (!plan) return;
 		if (plan.rotations > 0) {
 			plan.rotations--;
-			tryRotate(1);
+			if (tryRotate(1)) sound.rotate();
 		} else if (piece.x !== plan.x) {
 			// If a wall or the stack blocks the way, give up on the exact spot and settle for here.
-			if (!tryMove(Math.sign(plan.x - piece.x), 0)) plan.x = piece.x;
+			if (tryMove(Math.sign(plan.x - piece.x), 0)) sound.move();
+			else plan.x = piece.x;
 		} else if (aiCanDrop) hardDrop();
 	}
 
@@ -391,12 +487,16 @@
 	function act(action: string) {
 		if (action === 'pause') paused = !paused;
 		if (paused) return;
-		if (action === 'left') tryMove(-1, 0);
-		else if (action === 'right') tryMove(1, 0);
-		else if (action === 'down') tryMove(0, 1);
-		else if (action === 'cw') tryRotate(1);
-		else if (action === 'ccw') tryRotate(-1);
-		else if (action === 'drop') hardDrop();
+		if (action === 'left') {
+			if (tryMove(-1, 0)) sound.move();
+		} else if (action === 'right') {
+			if (tryMove(1, 0)) sound.move();
+		} else if (action === 'down') tryMove(0, 1);
+		else if (action === 'cw') {
+			if (tryRotate(1)) sound.rotate();
+		} else if (action === 'ccw') {
+			if (tryRotate(-1)) sound.rotate();
+		} else if (action === 'drop') hardDrop();
 	}
 
 	const KEYS: Record<string, string> = {
@@ -416,6 +516,7 @@
 	};
 
 	function onkeydown(e: KeyboardEvent) {
+		sound.wake();
 		const action = KEYS[e.key.length === 1 ? e.key.toLowerCase() : e.key];
 		if (!action) return;
 		e.preventDefault();
@@ -451,9 +552,8 @@
 				effects = effects.filter((e) => now - e.start < (e.kind === 'trail' ? TRAIL_MS : CLEAR_MS));
 				clock = now;
 			}
-			// Rows above a cleared line hold still until the clear animation has finished.
-			if (rowLift.some(Boolean) && !effects.some((e) => e.kind === 'clear'))
-				rowLift = rowLift.map((v) => (v < 0.5 ? 0 : v * collapseEase));
+			// Rows above a cleared line start falling into place right away.
+			if (rowLift.some(Boolean)) rowLift = rowLift.map((v) => (v < 0.5 ? 0 : v * collapseEase));
 			last = now;
 			frame = requestAnimationFrame(tick);
 		};
@@ -472,29 +572,41 @@
 		ctx.fillRect(x * CELL + 1, top, CELL - 2, 4);
 	}
 
-	function drawOutline(ctx: CanvasRenderingContext2D, x: number, y: number, color: string, dy = 0) {
-		ctx.strokeStyle = color;
-		ctx.lineWidth = 2;
-		ctx.strokeRect(x * CELL + 2, y * CELL + 2 - dy, CELL - 4, CELL - 4);
-		ctx.lineWidth = 1;
-	}
-
 	$effect(() => {
 		const ctx = canvas?.getContext('2d');
 		if (!ctx) return;
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.clearRect(0, 0, COLS * CELL, ROWS * CELL);
 
-		// A quick shake right as lines are obliterated; harder for more lines at once.
+		// A quick shake right as a tetris is obliterated. Each cleared line gets its own effect, and
+		// lines cleared together share a start time.
 		const blasts = effects.filter((e) => e.kind === 'clear' && clock - e.start < CLEAR_MS * 0.3);
-		if (blasts.length) {
-			const strength = 3 + 2 * blasts.length;
+		if (blasts.some((b) => blasts.filter((e) => e.start === b.start).length >= 4)) {
+			const strength = 11;
 			ctx.translate((Math.random() - 0.5) * strength, (Math.random() - 0.5) * strength);
 		}
 
 		ctx.strokeStyle = 'rgba(255, 237, 213, 0.05)';
 		for (let x = 0; x <= COLS; x++) ctx.strokeRect(x * CELL, 0, 0, ROWS * CELL);
 		for (let y = 0; y <= ROWS; y++) ctx.strokeRect(0, y * CELL, COLS * CELL, 0);
+
+		// The ghost shows where the piece lands by tinting the grid lines around those cells, so
+		// hide it while rows are still falling into place after a clear. All the cells go in one
+		// path so shared edges aren't drawn twice.
+		if (!rowLift.some(Boolean)) {
+			let ghostY = piece.y;
+			while (!collides(piece.shape, piece.x, ghostY + 1)) ghostY++;
+			ctx.beginPath();
+			piece.shape.forEach((row, r) =>
+				row.forEach(
+					(v, c) => v && ctx.rect((piece.x + c) * CELL, (ghostY + r) * CELL - cameraY, CELL, CELL)
+				)
+			);
+			ctx.globalAlpha = 0.5;
+			ctx.strokeStyle = piece.color;
+			ctx.stroke();
+			ctx.globalAlpha = 1;
+		}
 
 		const first = Math.max(0, Math.floor(cameraY / CELL) - 1);
 		const last = Math.min(world.length, Math.ceil(cameraY / CELL) + ROWS + 1);
@@ -510,25 +622,15 @@
 				const gradient = ctx.createLinearGradient(0, top, 0, bottom);
 				gradient.addColorStop(0, 'transparent');
 				gradient.addColorStop(1, e.color);
-				ctx.globalAlpha = 0.6 * (1 - t);
+				ctx.globalAlpha = 0.3 * (1 - t);
 				ctx.fillStyle = gradient;
-				ctx.fillRect(e.x * CELL + 4, top, CELL - 8, bottom - top);
+				ctx.fillRect(e.x * CELL + 8, top, CELL - 16, bottom - top);
 				ctx.globalAlpha = 1;
 			} else {
-				// Obliterate the row: the blocks flash white and swell, then burst into glowing shards,
-				// in the colors of the blocks they came from, that fly apart and fall.
+				// Obliterate the row: the blocks burst into glowing shards, in the colors of the blocks
+				// they came from, that fly apart and fall.
 				const top = e.y * CELL - cameraY;
 				const secs = (t * CLEAR_MS) / 1000;
-				ctx.fillStyle = '#ffffff';
-				ctx.shadowColor = '#ffffff';
-
-				if (t < 0.18) {
-					const swell = 1 + t;
-					const size = (CELL - 2) * swell;
-					ctx.shadowBlur = 20;
-					for (let x = 0; x < COLS; x++)
-						ctx.fillRect(x * CELL + CELL / 2 - size / 2, top + CELL / 2 - size / 2, size, size);
-				}
 
 				// The beams are drawn on the full-page overlay below, so they can leave the board.
 				ctx.shadowBlur = 8;
@@ -551,15 +653,6 @@
 			}
 		}
 
-		// The ghost shows where the piece lands on the settled stack, so hide it while rows
-		// are still waiting to fall into place after a clear.
-		if (!effects.some((e) => e.kind === 'clear')) {
-			let ghostY = piece.y;
-			while (!collides(piece.shape, piece.x, ghostY + 1)) ghostY++;
-			piece.shape.forEach((row, r) =>
-				row.forEach((v, c) => v && drawOutline(ctx, piece.x + c, ghostY + r, piece.color, cameraY))
-			);
-		}
 		piece.shape.forEach((row, r) =>
 			row.forEach((v, c) => v && drawCell(ctx, piece.x + c, piece.y + r, piece.color, cameraY))
 		);
@@ -584,34 +677,21 @@
 			if (e.kind !== 'clear') continue;
 			const t = Math.min(1, (clock - e.start) / CLEAR_MS);
 
-			// Two beams burst out from where the last piece landed: one races sideways along the
-			// row, the other shoots up and down the columns that piece filled. Both carry on well
-			// past the edges of the board.
+			// A beam rises from where the last piece landed, up through the columns that piece filled.
 			const spread = 1 - (1 - t) ** 3;
 			const originX = board.left + ((e.from + e.to + 1) / 2) * CELL;
 			const midY = board.top + e.y * CELL - cameraY + CELL / 2;
-			ctx.shadowColor = '#ffffff';
-			ctx.shadowBlur = 16;
+			ctx.shadowColor = '#ffc94d';
+			ctx.shadowBlur = 6;
 
-			const beamH = CELL * (1 - 0.8 * t);
-			const reachX = Math.max(innerWidth, COLS * CELL) * 0.75 * spread;
-			const across = ctx.createLinearGradient(originX - reachX, 0, originX + reachX, 0);
-			across.addColorStop(0, 'rgba(255, 255, 255, 0)');
-			across.addColorStop(0.5, '#ffffff');
-			across.addColorStop(1, 'rgba(255, 255, 255, 0)');
-			ctx.globalAlpha = 0.9 * (1 - t);
-			ctx.fillStyle = across;
-			ctx.fillRect(originX - reachX, midY - beamH / 2, reachX * 2, beamH);
-
-			const beamW = (e.to - e.from + 1) * CELL * (1 - 0.6 * t);
-			const reachY = Math.max(innerHeight, ROWS * CELL) * 0.75 * spread;
-			const along = ctx.createLinearGradient(0, midY - reachY, 0, midY + reachY);
-			along.addColorStop(0, 'rgba(255, 255, 255, 0)');
-			along.addColorStop(0.5, '#ffffff');
-			along.addColorStop(1, 'rgba(255, 255, 255, 0)');
-			ctx.globalAlpha = 0.7 * (1 - t);
-			ctx.fillStyle = along;
-			ctx.fillRect(originX - beamW / 2, midY - reachY, beamW, reachY * 2);
+			const beamW = (e.to - e.from + 1) * CELL * 0.4 * (1 - 0.6 * t);
+			const reachY = Math.max(innerHeight, ROWS * CELL) * 0.375 * spread;
+			const up = ctx.createLinearGradient(0, midY - reachY, 0, midY);
+			up.addColorStop(0, 'rgba(255, 201, 77, 0)');
+			up.addColorStop(1, '#ffc94d');
+			ctx.globalAlpha = 0.15 * (1 - t);
+			ctx.fillStyle = up;
+			ctx.fillRect(originX - beamW / 2, midY - reachY, beamW, reachY);
 		}
 		ctx.shadowBlur = 0;
 		ctx.globalAlpha = 1;
@@ -665,7 +745,7 @@
 	/>
 </svelte:head>
 
-<svelte:window {onkeydown} />
+<svelte:window {onkeydown} onpointerdown={sound.wake} />
 
 <canvas bind:this={overlay} class="pointer-events-none fixed inset-0 z-50 h-full w-full"></canvas>
 
@@ -687,6 +767,23 @@
 
 	<div class="relative border border-current/20 bg-black/40">
 		<canvas bind:this={canvas} width={COLS * CELL} height={ROWS * CELL} class="block"></canvas>
+		<!-- What each part of the score was earned for, in the middle of the board. -->
+		<ul
+			class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1 text-[#ffc94d] [text-shadow:0_0_8px_rgb(0_0_0)]"
+			aria-live="polite"
+		>
+			{#each awards as award (award.id)}
+				<li
+					class="tracking-wide"
+					animate:flip={{ duration: 200 }}
+					in:fly={{ y: 8, duration: 250 }}
+					out:fade={{ duration: 500 }}
+				>
+					<span class="font-mono">+{award.points.toLocaleString()}</span>
+					{award.name}
+				</li>
+			{/each}
+		</ul>
 		{#if paused}
 			<div
 				class="absolute inset-0 flex items-center justify-center bg-black/60 text-2xl tracking-widest"
@@ -707,24 +804,13 @@
 			></canvas>
 		</div>
 		<dl class="grid grid-cols-2 gap-x-2">
+			<dt>Score</dt>
+			<dd class="text-right font-mono">{score.toLocaleString()}</dd>
 			<dt>Lines</dt>
 			<dd class="text-right font-mono">{lines}</dd>
 			<dt>Scrolled</dt>
 			<dd class="text-right font-mono">{scrolled}</dd>
 		</dl>
-		<label class="flex cursor-pointer items-center gap-2">
-			<input type="checkbox" bind:checked={aiEnabled} class="accent-green-600" />
-			AI plays for you
-		</label>
-		<label class="-mt-3 flex cursor-pointer items-center gap-2" class:opacity-50={!aiEnabled}>
-			<input
-				type="checkbox"
-				bind:checked={aiCanDrop}
-				disabled={!aiEnabled}
-				class="accent-green-600"
-			/>
-			Let the AI drop pieces
-		</label>
 		<div class="flex gap-2">
 			<button class="btn" onclick={() => act('pause')}>{paused ? 'Resume' : 'Pause'}</button>
 			<button class="btn" onclick={restart}>Restart</button>
@@ -737,6 +823,30 @@
 			<li>Space: hard drop</li>
 			<li>P / Esc: pause</li>
 		</ul>
+		<div class="flex flex-col gap-2">
+			<label class="flex cursor-pointer items-center gap-2">
+				<input
+					type="checkbox"
+					bind:checked={muted}
+					onchange={() => sound.setEnabled(!muted)}
+					class="accent-green-600"
+				/>
+				Mute
+			</label>
+			<label class="flex cursor-pointer items-center gap-2">
+				<input type="checkbox" bind:checked={aiEnabled} class="accent-green-600" />
+				AI plays for you
+			</label>
+			<label class="flex cursor-pointer items-center gap-2" class:opacity-50={!aiEnabled}>
+				<input
+					type="checkbox"
+					bind:checked={aiCanDrop}
+					disabled={!aiEnabled}
+					class="accent-green-600"
+				/>
+				Let the AI drop pieces
+			</label>
+		</div>
 	</aside>
 </div>
 
