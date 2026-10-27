@@ -16,6 +16,9 @@ import minewolfMp4 from '$lib/assets/minewolf.mp4';
 import zenTetrisPoster from '$lib/assets/zen-tetris-poster.webp';
 import zenTetrisWebm from '$lib/assets/zen-tetris.webm';
 import zenTetrisMp4 from '$lib/assets/zen-tetris.mp4';
+import canvasCalPoster from '$lib/assets/canvas-cal-poster.webp';
+import canvasCalWebm from '$lib/assets/canvas-cal.webm';
+import canvasCalMp4 from '$lib/assets/canvas-cal.mp4';
 import passwordGenPoster from '$lib/assets/password-generator-poster.webp';
 import passwordGenWebm from '$lib/assets/password-generator.webm';
 import passwordGenMp4 from '$lib/assets/password-generator.mp4';
@@ -105,6 +108,16 @@ export const projects: Project[] = [
 		tags: ['svelte', 'javascript'],
 		image: zenTetrisPoster,
 		video: { webm: zenTetrisWebm, mp4: zenTetrisMp4 }
+	},
+	{
+		name: 'Canvas Cal',
+		link: 'https://cal.clayk.cc/?canvasFeed=https%3A%2F%2Fumsystem.instructure.com%2Ffeeds%2Fcalendars%2Fuser_epYWGJ78l90wiUiiFm9GRi0lLlTFK2Fmf61IJ2QY.ics',
+		source: 'https://github.com/claytonkruse/cal',
+		description:
+			'A calendar for your Canvas feed that moves assignment due dates up to where they intuitively belong.',
+		tags: ['svelte', 'sveltekit', 'shadcn-svelte', 'tailwindcss', 'ical'],
+		image: canvasCalPoster,
+		video: { webm: canvasCalWebm, mp4: canvasCalMp4 }
 	},
 	{
 		name: 'Password Generator',
