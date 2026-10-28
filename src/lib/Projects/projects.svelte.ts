@@ -37,6 +37,8 @@ export type Project = {
 	post?: string;
 	link?: string;
 	source?: string;
+	/** The source repo's README, linked as "Read More" when there's no `post`. */
+	readme?: string;
 	description: string;
 	tags: string[];
 	/** Shown on its own, or as the poster while `video` loads. Ideally the video's first frame. */
@@ -72,9 +74,10 @@ export const projects: Project[] = [
 		// post: '/writings/ihatewebp/',
 		link: 'https://ihatewebp.com/',
 		source: 'https://github.com/claytonkruse/ihatewebp',
+		readme: 'https://github.com/claytonkruse/ihatewebp#readme',
 		description:
 			'Initially a simple tool to convert WebP images to PNG, which later grew into a full suite of convenient tools for the web.',
-		tags: ['svelte', 'tailwindcss'],
+		tags: ['svelte', 'sveltekit', 'typescript', 'tailwindcss', 'shadcn-svelte'],
 		image: ih8webpPoster,
 		video: { webm: ih8webpWebm, mp4: ih8webpMp4 }
 	},
@@ -83,17 +86,22 @@ export const projects: Project[] = [
 		// post: '/writings/minewolf/',
 		link: 'https://minewolf.net/',
 		source: 'https://github.com/claytonkruse/minewolf',
+		readme: 'https://github.com/claytonkruse/minewolf#readme',
 		description:
 			'A Minecraft server listing platform with live server info and Votifier integration.',
 		tags: [
 			'svelte',
 			'sveltekit',
+			'typescript',
+			'tailwindcss',
+			'shadcn-svelte',
 			'minecraft',
 			'postgres',
 			'sql',
 			'prisma',
 			'drizzle',
 			'sso',
+			'docker',
 			'linux'
 		],
 		image: minewolfPoster,
@@ -113,9 +121,10 @@ export const projects: Project[] = [
 		name: 'Canvas Cal',
 		link: 'https://cal.clayk.cc/?canvasFeed=https%3A%2F%2Fumsystem.instructure.com%2Ffeeds%2Fcalendars%2Fuser_epYWGJ78l90wiUiiFm9GRi0lLlTFK2Fmf61IJ2QY.ics',
 		source: 'https://github.com/claytonkruse/cal',
+		readme: 'https://github.com/claytonkruse/cal#readme',
 		description:
 			'A calendar for your Canvas feed that moves assignment due dates up to where they intuitively belong.',
-		tags: ['svelte', 'sveltekit', 'shadcn-svelte', 'tailwindcss', 'ical'],
+		tags: ['svelte', 'sveltekit', 'typescript', 'shadcn-svelte', 'tailwindcss', 'ical'],
 		image: canvasCalPoster,
 		video: { webm: canvasCalWebm, mp4: canvasCalMp4 }
 	},
@@ -126,7 +135,7 @@ export const projects: Project[] = [
 		source: 'https://github.com/claytonkruse/ihatewebp/tree/master/src/routes/password-generator',
 		description:
 			'A fun and memorable password generator with many options, bells and whistles. A new addition to iHATEWebP.',
-		tags: ['svelte', 'shadcn-svelte'],
+		tags: ['svelte', 'typescript', 'tailwindcss', 'shadcn-svelte'],
 		image: passwordGenPoster,
 		video: { webm: passwordGenWebm, mp4: passwordGenMp4 }
 	},

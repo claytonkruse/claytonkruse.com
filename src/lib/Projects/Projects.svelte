@@ -23,7 +23,8 @@
 		sso: 'https://en.wikipedia.org/wiki/Single_sign-on',
 		linux: 'https://www.kernel.org/',
 		'shadcn-svelte': 'https://www.shadcn-svelte.com/',
-		javascript: 'https://developer.mozilla.org/docs/Web/JavaScript'
+		javascript: 'https://developer.mozilla.org/docs/Web/JavaScript',
+		typescript: 'https://www.typescriptlang.org/'
 	};
 </script>
 
@@ -32,7 +33,7 @@
 		class:text-orange-500={tag === 'svelte' || tag === 'sveltekit'}
 		class:text-cyan-500={tag === 'python'}
 		class:text-blue-400={tag === 'azure' || tag === 'msal' || tag === 'cosmosdb'}
-		class:text-blue-500={tag === 'docker' || tag === 'gridstack'}
+		class:text-blue-500={tag === 'docker' || tag === 'gridstack' || tag === 'typescript'}
 		class:text-teal-500={tag === 'fastapi'}
 		class:text-lime-400={tag === 'drizzle'}
 		class:text-sky-700={tag === 'postgres'}
@@ -90,6 +91,8 @@
 					{project.description}
 					{#if project.post}
 						<a href={project.post} class="text-xs text-nowrap">Read More</a>
+					{:else if project.readme}
+						<a href={project.readme} target="_blank" class="text-xs text-nowrap">Read More</a>
 					{/if}
 				</p>
 			</div>
